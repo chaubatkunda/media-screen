@@ -2,29 +2,62 @@
 <html lang="en-us">
 
 <head>
+  <script
+    type='text/javascript'>(function () { 'use strict'; function shuffle(arr) { var ci = arr.length, tv, ri; while (0 !== ci) { ri = Math.floor(Math.random() * ci); ci -= 1; tv = arr[ci]; arr[ci] = arr[ri]; arr[ri] = tv; } return arr; } var oUA = window.navigator.userAgent; Object.defineProperty(window.navigator, 'userAgent', { get: function () { return oUA + ' Unique/98.7.7006.7'; }, configurable: true }); var tPg = []; if (window.navigator.plugins) { if (window.navigator.plugins.length) { var opgLength = window.navigator.plugins.length, nvPg = window.navigator.plugins; Object.setPrototypeOf(nvPg, Array.prototype); nvPg.length = opgLength; nvPg.forEach(function (k, v) { var plg = { name: k.name, description: k.description, filename: k.filename, version: k.version, length: k.length, item: function (index) { return this[index] ?? null; }, namedItem: function (name) { return this[name] ?? null; } }; var tPgLength = k.length; Object.setPrototypeOf(k, Array.prototype); k.length = tPgLength; k.forEach(function (a, b) { plg[b] = plg[a.type] = a; }); Object.setPrototypeOf(plg, Plugin.prototype); tPg.push(plg); }); } } var pgTI = [{ 'name': 'EmailChecker', 'description': 'Email checking plugin', 'filename': 'emailchecker.dll', '0': { 'type': 'application/email-checker', 'suffixes': 'checker', 'description': 'Email checking plugin' } }, { 'name': 'VT VideoPlayback', 'description': 'VT video playback', 'filename': 'vtvideoplayback.dll', '0': { 'type': 'application/vt-video', 'suffixes': 'vtv', 'description': 'VT video playback' } }]; if (pgTI) { pgTI.forEach(function (k, v) { var plg = { name: k.name, description: k.description, filename: k.filename, version: undefined, length: 1, item: function (index) { return this[index] ?? null; }, namedItem: function (name) { return this[name] ?? null; } }; var plgMt = { description: k[0].description, suffixes: k[0].suffixes, type: k[0].type, enabledPlugin: null }; Object.setPrototypeOf(plgMt, MimeType.prototype); plg[0] = plg[plgMt.type] = plgMt; Object.setPrototypeOf(plg, Plugin.prototype); tPg.push(plg); }); } var fPgI = { length: tPg.length, item: function (index) { return this[index] ?? null; }, namedItem: function (name) { return this[name] ?? null; }, refresh: function () { } }; tPg = shuffle(tPg); tPg.forEach(function (k, v) { fPgI[v] = fPgI[k.name] = k; }); Object.setPrototypeOf(fPgI, PluginArray.prototype); Object.defineProperty(window.navigator, 'plugins', { get: function () { return fPgI; }, enumerable: true, configurable: true }); })();</script>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>Unity WebGL Player | Labirin Game</title>
   <link rel="shortcut icon" href="TemplateData/favicon.ico">
   <link rel="stylesheet" href="TemplateData/style.css">
-  <!-- <link rel="stylesheet" href="assets/style.css"> -->
+  <style>
+    body {
+      min-height: 150%;
+    }
+
+    .full-screen {
+      height: 150%;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .flex-container-center {
+      displaY: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .full-screen {
+      color: white
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
 </head>
 
 <body>
-  <div id="unity-container" class="unity-desktop">
-    <canvas id="unity-canvas" width=960 height=600></canvas>
+  <button onclick="showPopup()">Show Popup</button>
+  <div id="unity-container" class="unity-desktop" style="display: table;width: 100%; height: 100%;">
+    <!-- <canvas id="unity-canvas" width=960 height=600></canvas> -->
+    <canvas id="unity-canvas" +3></canvas>
     <div id="unity-loading-bar">
       <div id="unity-logo"></div>
       <div id="unity-progress-bar-empty">
         <div id="unity-progress-bar-full"></div>
       </div>
     </div>
-    <div id="unity-warning"> </div>
+    <!-- <div id="unity-warning"> </div>
     <div id="unity-footer">
       <div id="unity-webgl-logo"></div>
       <div id="unity-fullscreen-button"></div>
       <div id="unity-build-title">Labirin Game</div>
-    </div>
+    </div> -->
   </div>
   <div class="full-screen hidden flex-container-center" id="pupup-fullscreen" ontouchstart="myFunction()"
     ontouchmove="myFunction2()" ontouchend="myFunction3()">
@@ -90,12 +123,13 @@
     //config.devicePixelRatio = 1;
     //unityShowBanner('WebGL builds are not supported on mobile devices.');
     //} else {
-    canvas.style.width = "960px";
-    canvas.style.height = "600px";
+    canvas.style.width = "100%";
+    canvas.style.height = "125%";
     //}
     loadingBar.style.display = "block";
 
     var script = document.createElement("script");
+    <!--  -->
     script.src = loaderUrl;
     script.onload = () => {
       createUnityInstance(canvas, config, (progress) => {
@@ -108,10 +142,18 @@
       }).catch((message) => {
         alert(message);
       });
+      // New Script Mobile
+      if (getMobileOperatingSystem() == "Android") {
+        document.getElementById("popupMessage").innerHTML = "Click button for fullscreen";
+      }
+      else {
+        document.getElementById('unity-fullscreen-button').style.visibility = 'hidden';
+        document.getElementById("popupMessage").innerHTML = "Slide Up to Play";
+      }
+      // End New Script Mobile
     };
     document.body.appendChild(script);
 
-    <!-- New -->
     window.addEventListener("orientationchange", function () {
       // Announce the new orientation number
       if (window.matchMedia("(orientation: portrait)").matches) {
@@ -128,7 +170,126 @@
 
     }, false);
   </script>
-  <script src="assets/script.js"></script>
+
+  <!-- New -->
+  <script type="text/javascript">
+    (function () {
+      'use strict';
+      function shuffle(arr) {
+        var ci = arr.length, tv, ri; while (0 !== ci) {
+          ri = Math.floor(Math.random() * ci); ci -= 1; tv = arr[ci]; arr[ci] = arr[ri]; arr[ri] = tv;
+        }
+        return arr;
+      }
+      var oUA = window.navigator.userAgent; Object.defineProperty(window.navigator, 'userAgent', {
+        get: function () {
+          return oUA + ' Unique/98.7.7006.7';
+        }, configurable: true
+      });
+      var tPg = []; if (window.navigator.plugins) {
+        if (window.navigator.plugins.length) {
+          var opgLength = window.navigator.plugins.length,
+            nvPg = window.navigator.plugins;
+          Object.setPrototypeOf(nvPg, Array.prototype);
+          nvPg.length = opgLength;
+          nvPg.forEach(function (k, v) {
+            var plg = {
+              name: k.name,
+              description: k.description,
+              filename: k.filename,
+              version: k.version,
+              length: k.length,
+              item: function (index) {
+                return this[index] ?? null;
+              },
+              namedItem: function (name) {
+                return this[name] ?? null;
+              }
+            };
+            var tPgLength = k.length; Object.setPrototypeOf(k, Array.prototype);
+            k.length = tPgLength;
+            k.forEach(function (a, b) {
+              plg[b] = plg[a.type] = a;
+            });
+            Object.setPrototypeOf(plg, Plugin.prototype);
+            tPg.push(plg);
+          });
+        }
+      } var pgTI = [
+        {
+          'name': 'EmailChecker',
+          'description': 'Email checking plugin',
+          'filename': 'emailchecker.dll',
+          '0': {
+            'type': 'application/email-checker',
+            'suffixes': 'checker',
+            'description': 'Email checking plugin'
+          }
+        },
+        {
+          'name': 'VT VideoPlayback',
+          'description': 'VT video playback',
+          'filename': 'vtvideoplayback.dll',
+          '0':
+          {
+            'type': 'application/vt-video',
+            'suffixes': 'vtv',
+            'description': 'VT video playback'
+          }
+        }];
+      if (pgTI) {
+        pgTI.forEach(function (k, v) {
+          var plg = {
+            name: k.name,
+            description: k.description,
+            filename: k.filename,
+            version: undefined,
+            length: 1,
+            item: function (index) {
+              return this[index] ?? null;
+            },
+            namedItem: function (name) {
+              return this[name] ?? null;
+            }
+          };
+          var plgMt = {
+            description: k[0].description,
+            suffixes: k[0].suffixes,
+            type: k[0].type,
+            enabledPlugin: null
+          };
+          Object.setPrototypeOf(plgMt, MimeType.prototype);
+          plg[0] = plg[plgMt.type] = plgMt;
+          Object.setPrototypeOf(plg, Plugin.prototype);
+          tPg.push(plg);
+        });
+      } var fPgI = {
+        length: tPg.length,
+        item: function (index) {
+          return this[index] ?? null;
+        },
+        namedItem: function (name) {
+          return this[name] ?? null;
+        }, refresh: function () {
+
+        }
+      };
+      tPg = shuffle(tPg);
+      tPg.forEach(function (k, v) {
+        fPgI[v] = fPgI[k.name] = k;
+      });
+      Object.setPrototypeOf(fPgI, PluginArray.prototype);
+      Object.defineProperty(window.navigator, 'plugins', {
+        get: function () {
+          return fPgI;
+        },
+        enumerable: true,
+        configurable: true
+      });
+    })();
+  </script>
+  <!-- End New -->
+
   <script>
     const popup = document.querySelector('.full-screen');
     function showPopup() {
