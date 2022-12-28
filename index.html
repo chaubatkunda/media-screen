@@ -124,22 +124,21 @@
           //  noSleep.enable();
           //alert('PopUp')
           // }
+
+          showPopup();
+          popupFull.addEventListener('touchmove', function () {
+            unityInstance.SetFullscreen(1);
+            noSleep.enable();
+          })
         } else if (getMobileOperatingSystem() == "iOS") {
           alert(getMobileOperatingSystem());
           //
         } else if (getMobileOperatingSystem() == "unknown") {
+          //popupFull.innerHTML = "Show Uknown";
           showPopup();
-          //document.getElementById("popupMessage").innerHTML = "Show";
-          popupFull.innerHTML = "Show Uknown";
-          //popupFull.onclick = () => {
-          //  var noSleep = new NoSleep();
-          // noSleep.enable();
-          //}
           popupFull.addEventListener('click', function () {
-            //  var noSleep = new NoSleep();
             unityInstance.SetFullscreen(1);
             noSleep.enable();
-            //alert('PopUp')
           })
           //alert(getMobileOperatingSystem());
         } else {
