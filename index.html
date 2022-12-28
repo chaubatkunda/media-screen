@@ -125,8 +125,10 @@
       if (getMobileOperatingSystem() == "Android") {
         alert(getMobileOperatingSystem());
         // document.getElementById("popupMessage").innerHTML = "Show";
-      }
-      else {
+      } else if (getMobileOperatingSystem() == "iOS") {
+        alert(getMobileOperatingSystem());
+        //
+      } else {
         document.getElementById('unity-fullscreen-button').style.visibility = 'hidden';
         document.getElementById("popupMessage").innerHTML = "Slide Up to Play";
       }
