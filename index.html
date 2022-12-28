@@ -14,7 +14,7 @@
 
 <body>
   <button onclick="showPopup()">Show Popup</button>
-  <div id="unity-container" class="unity-desktop" ontouchmove="mouseUp()">
+  <div id="unity-container" class="unity-desktop">
     <!-- <canvas id="unity-canvas" width=960 height=600></canvas> -->
     <canvas id="unity-canvas" +3></canvas>
     <div id="unity-loading-bar">
@@ -29,19 +29,19 @@
       <div id="unity-fullscreen-button"></div>
       <div id="unity-build-title">Labirin Game</div>
     </div> -->
-    <!-- <div class="alert-toas">
+    <div class="alert-toas">
       <div class="alert-toash-header">
         <p>Lorem ipsum dolor sit amet consectetur.</p>
       </div>
       <div class="alert-toash-body">
-        <button type="button" id="btn-toas">Wake Lock is disabled</button>
+        <button type="button" onclick="showToas()" id="btn-toas">Active</button>
       </div>
-    </div> -->
+    </div>
   </div>
   <div class="full-screen hidden flex-container-center" id="pupup-fullscreen" ontouchstart="myFunction()"
     ontouchmove="myFunction2()" ontouchend="myFunction3()">
-    <h2 id="popupMessage"></h2>
-    <!-- <button id="unity-fullscreen-button" onclick="closePopup()"></button> -->
+    <h2 id="popupMessage"> </h2>
+    <button id="unity-fullscreen-button" onclick="closePopup()"></button>
   </div>
   <script>
     var container = document.querySelector("#unity-container");
@@ -50,7 +50,6 @@
     var progressBarFull = document.querySelector("#unity-progress-bar-full");
     var fullscreenButton = document.querySelector("#unity-fullscreen-button");
     var warningBanner = document.querySelector("#unity-warning");
-    var popUpFull = document.querySelector("#pupup-fullscreen");
 
     // Shows a temporary message banner/ribbon for a few seconds, or
     // a permanent error message on top of the canvas if type=='error'.
@@ -109,36 +108,26 @@
     loadingBar.style.display = "block";
 
     var script = document.createElement("script");
+    <!--  -->
     script.src = loaderUrl;
     script.onload = () => {
       createUnityInstance(canvas, config, (progress) => {
         progressBarFull.style.width = 100 * progress + "%";
       }).then((unityInstance) => {
         loadingBar.style.display = "none";
-        //showAdnroid(unityInstance)
-        // fullscreenButton.onclick = () => {
-        // unityInstance.SetFullscreen(1);
-        //};
-        //popUpFull.ontouchmove = () => {
-        //unityInstance.SetFullscreen(1);
-        //alert("Ok")
-        // }
+        fullscreenButton.onclick = () => {
+          unityInstance.SetFullscreen(1);
+        };
       }).catch((message) => {
         alert(message);
       });
       // New Script Mobile
       if (getMobileOperatingSystem() == "Android") {
-        //function showAdnroid(unityInstance) {
-        // popUpFull.ontouchmove = () => {
-        // unityInstance.SetFullscreen(1);
-        // alert("Ok")
-        //}
-        //}
-        showPopup()
-        //document.getElementById("popupMessage").innerHTML = "Click button for fullscreen";
-      } else {
-        // document.getElementById('unity-fullscreen-button').style.visibility = 'hidden';
-        // document.getElementById("popupMessage").innerHTML = "Slide Up to Play";
+        document.getElementById("popupMessage").innerHTML = "Click button for fullscreen";
+      }
+      else {
+        document.getElementById('unity-fullscreen-button').style.visibility = 'hidden';
+        document.getElementById("popupMessage").innerHTML = "Slide Up to Play";
       }
       // End New Script Mobile
     };
@@ -149,18 +138,17 @@
       if (window.matchMedia("(orientation: portrait)").matches) {
         // you're in PORTRAIT mode
         // alert("portrait");
-        //showPopup();
+        showPopup();
       }
 
       if (window.matchMedia("(orientation: landscape)").matches) {
         // you're in LANDSCAPE mode
         // alert("landscape");
-        // showPopup();
       }
 
     }, false);
   </script>
-  <script src="assets/noSlip.js"></script>
+
   <script src="assets/script.js"></script>
 </body>
 
