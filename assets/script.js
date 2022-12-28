@@ -212,12 +212,13 @@ function getMobileOperatingSystem() {
 //   toas.classList.toggle("show-toas");
 // }, 10000);
 // function showToas() {
-//   var btntoas = document.querySelector("#btn-toas");
+//   var btntoas = document.queshowPopuprySelector("#btn-toas");
 //   btntoas.classList.remove("show-toas");
 // }
-
+// const popup = document.querySelector(".full-screen");
 function mouseUp() {
   var noSleep = new NoSleep();
   noSleep.enable();
+  showPopup();
   console.log("MouseUp");
 }
