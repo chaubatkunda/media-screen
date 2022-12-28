@@ -126,12 +126,17 @@
           // }
 
           //showPopup();
-          popupFull.addEventListener('click', function () {
+          popupFull.addEventListener('touchmove', function () {
             unityInstance.SetFullscreen(1);
             noSleep.enable();
           })
         } else if (getMobileOperatingSystem() == "iOS") {
-          alert(getMobileOperatingSystem());
+          popupFull.innerHTML = "iOS";
+          popupFull.addEventListener('touchmove', function () {
+            unityInstance.SetFullscreen(1);
+            noSleep.enable();
+          })
+          //alert(getMobileOperatingSystem());
           //
         } else if (getMobileOperatingSystem() == "unknown") {
           //popupFull.innerHTML = "Show Uknown";
