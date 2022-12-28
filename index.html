@@ -95,16 +95,16 @@
     // the canvas DOM size and WebGL render target sizes yourself.
     // config.matchWebGLToCanvasSize = false;
 
-    //if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-    //container.className = "unity-mobile";
-    // Avoid draining fillrate performance on mobile devices,
-    // and default/override low DPI mode on mobile browsers.
-    //config.devicePixelRatio = 1;
-    //unityShowBanner('WebGL builds are not supported on mobile devices.');
-    //} else {
-    canvas.style.width = "100%";
-    canvas.style.height = "125%";
-    //}
+    if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+      container.className = "unity-mobile";
+      // Avoid draining fillrate performance on mobile devices,
+      // and default/override low DPI mode on mobile browsers.
+      config.devicePixelRatio = 1;
+      unityShowBanner('WebGL builds are not supported on mobile devices.');
+    } else {
+      canvas.style.width = "100%";
+      canvas.style.height = "125%";
+    }
     loadingBar.style.display = "block";
 
     var script = document.createElement("script");
@@ -125,13 +125,13 @@
         alert(message);
       });
       // New Script Mobile
-      if (getMobileOperatingSystem() == "Android") {
-        document.getElementById("popupMessage").innerHTML = "Click button for fullscreen";
-      }
-      else {
-        document.getElementById('unity-fullscreen-button').style.visibility = 'hidden';
-        document.getElementById("popupMessage").innerHTML = "Slide Up to Play";
-      }
+      // if (getMobileOperatingSystem() == "Android") {
+      // document.getElementById("popupMessage").innerHTML = "Click button for fullscreen";
+      //}
+      //else {
+      //document.getElementById('unity-fullscreen-button').style.visibility = 'hidden';
+      //document.getElementById("popupMessage").innerHTML = "Slide Up to Play";
+      //}
       // End New Script Mobile
     };
     document.body.appendChild(script);
