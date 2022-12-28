@@ -29,15 +29,14 @@
       <div id="unity-fullscreen-button"></div>
       <div id="unity-build-title">Labirin Game</div>
     </div> -->
-    <div class="alert-toas">
+    <!-- <div class="alert-toas">
       <div class="alert-toash-header">
         <p>Lorem ipsum dolor sit amet consectetur.</p>
       </div>
       <div class="alert-toash-body">
         <button type="button" id="btn-toas">Wake Lock is disabled</button>
-        <!-- <input type="button" id="toggle" value="Wake Lock is disabled" /> -->
       </div>
-    </div>
+    </div> -->
   </div>
   <div class="full-screen hidden flex-container-center" id="pupup-fullscreen" ontouchstart="myFunction()"
     ontouchmove="myFunction2()" ontouchend="myFunction3()">
@@ -109,7 +108,6 @@
     loadingBar.style.display = "block";
 
     var script = document.createElement("script");
-    <!--  -->
     script.src = loaderUrl;
     script.onload = () => {
       createUnityInstance(canvas, config, (progress) => {
@@ -119,6 +117,10 @@
         fullscreenButton.onclick = () => {
           unityInstance.SetFullscreen(1);
         };
+
+        var noSleep = new NoSleep();
+        noSleep.enable();
+
       }).catch((message) => {
         alert(message);
       });
