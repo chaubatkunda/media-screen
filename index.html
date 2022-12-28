@@ -127,8 +127,12 @@
 
           //showPopup();
           popupFull.addEventListener('click', function () {
-            unityInstance.SetFullscreen(1);
-            noSleep.enable();
+            //unityInstance.SetFullscreen(1);
+            //noSleep.enable();
+            window.addEventListener('touchmove', function () {
+              unityInstance.SetFullscreen(1);
+              noSleep.enable();
+            })
           })
         } else if (getMobileOperatingSystem() == "iOS") {
           popupFull.innerHTML = "Show iOS";
