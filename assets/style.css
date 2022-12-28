@@ -32,9 +32,9 @@
   display: table;
   width: 100%;
   height: 100%;
-  position: relative;
+  /* position: relative; */
 }
-
+/* 
 .hidden-toas {
   display: none;
 }
@@ -47,10 +47,8 @@
   border: 1px solid #73ad21;
   border-radius: 10px;
   padding: 10px;
-  position: absolute;
+  position: absolute; 
   bottom: 8px;
   left: 16px;
   font-size: 18px;
-  /* background-color: green; */
-  /* opacity: 0.3; */
-}
+} */
