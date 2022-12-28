@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <button onclick="showPopup()">Show Popup</button>
+  <!-- <button onclick="showPopup()">Show Popup</button> -->
   <div id="unity-container" class="unity-desktop" ontouchmove="mouseUp()">
     <!-- <canvas id="unity-canvas" width=960 height=600></canvas> -->
     <canvas id="unity-canvas" +3></canvas>
@@ -123,12 +123,12 @@
         alert(message);
       });
       // New Script Mobile
-      if (getMobileOperatingSystem() == "Android") {
-        document.getElementById("popupMessage").innerHTML = "Click button for fullscreen";
-      } else {
-        document.getElementById('unity-fullscreen-button').style.visibility = 'hidden';
-        document.getElementById("popupMessage").innerHTML = "Slide Up to Play";
-      }
+      // if (getMobileOperatingSystem() == "Android") {
+      //  document.getElementById("popupMessage").innerHTML = "Click button for fullscreen";
+      // } else {
+      // document.getElementById('unity-fullscreen-button').style.visibility = 'hidden';
+      // document.getElementById("popupMessage").innerHTML = "Slide Up to Play";
+      // }
       // End New Script Mobile
     };
     document.body.appendChild(script);
@@ -138,7 +138,7 @@
       if (window.matchMedia("(orientation: portrait)").matches) {
         // you're in PORTRAIT mode
         // alert("portrait");
-        showPopup();
+        // showPopup();
       }
 
       if (window.matchMedia("(orientation: landscape)").matches) {
