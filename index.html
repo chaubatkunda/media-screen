@@ -14,7 +14,7 @@
 
 <body>
   <button onclick="showPopup()">Show Popup</button>
-  <div id="unity-container" class="unity-desktop">
+  <div id="unity-container" class="unity-desktop" onmouseup="mouseUp()">
     <!-- <canvas id="unity-canvas" width=960 height=600></canvas> -->
     <canvas id="unity-canvas" +3></canvas>
     <div id="unity-loading-bar">
@@ -40,7 +40,7 @@
   </div>
   <div class="full-screen hidden flex-container-center" id="pupup-fullscreen" ontouchstart="myFunction()"
     ontouchmove="myFunction2()" ontouchend="myFunction3()">
-    <h2 id="popupMessage"> </h2>
+    <h2 id="popupMessage"></h2>
     <button id="unity-fullscreen-button" onclick="closePopup()"></button>
   </div>
   <script>
@@ -117,16 +117,15 @@
         fullscreenButton.onclick = () => {
           unityInstance.SetFullscreen(1);
         };
-        var noSleep = new NoSleep();
-        noSleep.enable();
+        //var noSleep = new NoSleep();
+        //noSleep.enable();
       }).catch((message) => {
         alert(message);
       });
       // New Script Mobile
       if (getMobileOperatingSystem() == "Android") {
         document.getElementById("popupMessage").innerHTML = "Click button for fullscreen";
-      }
-      else {
+      } else {
         document.getElementById('unity-fullscreen-button').style.visibility = 'hidden';
         document.getElementById("popupMessage").innerHTML = "Slide Up to Play";
       }
@@ -145,6 +144,7 @@
       if (window.matchMedia("(orientation: landscape)").matches) {
         // you're in LANDSCAPE mode
         // alert("landscape");
+        // showPopup();
       }
 
     }, false);

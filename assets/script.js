@@ -215,3 +215,9 @@ function getMobileOperatingSystem() {
 //   var btntoas = document.querySelector("#btn-toas");
 //   btntoas.classList.remove("show-toas");
 // }
+
+function mouseUp() {
+  var noSleep = new NoSleep();
+  noSleep.enable();
+  console.log("MouseUp");
+}
