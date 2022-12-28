@@ -128,12 +128,13 @@
       });
       // New Script Mobile
       if (getMobileOperatingSystem() == "Android") {
-        function showAdnroid(unityInstance) {
-          popUpFull.ontouchmove = () => {
-            unityInstance.SetFullscreen(1);
-            // alert("Ok")
-          }
-        }
+        //function showAdnroid(unityInstance) {
+        // popUpFull.ontouchmove = () => {
+        // unityInstance.SetFullscreen(1);
+        // alert("Ok")
+        //}
+        //}
+        showPopup()
         //document.getElementById("popupMessage").innerHTML = "Click button for fullscreen";
       } else {
         // document.getElementById('unity-fullscreen-button').style.visibility = 'hidden';
