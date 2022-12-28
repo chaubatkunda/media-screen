@@ -50,6 +50,7 @@
     var progressBarFull = document.querySelector("#unity-progress-bar-full");
     var fullscreenButton = document.querySelector("#unity-fullscreen-button");
     var warningBanner = document.querySelector("#unity-warning");
+    var popUpFull = document.querySelector("#pupup-fullscreen");
 
     // Shows a temporary message banner/ribbon for a few seconds, or
     // a permanent error message on top of the canvas if type=='error'.
@@ -117,21 +118,21 @@
         // fullscreenButton.onclick = () => {
         // unityInstance.SetFullscreen(1);
         //};
-        //container.ontouchmove = () => {
-        //unityInstance.SetFullscreen(1);
-        //alert("Ok")
-        //console.log("Ok")
-        // }
+        popUpFull.ontouchmove = () => {
+          unityInstance.SetFullscreen(1);
+          //alert("Ok")
+          console.log("Ok")
+        }
       }).catch((message) => {
         alert(message);
       });
       // New Script Mobile
-      // if (getMobileOperatingSystem() == "Android") {
-      //  document.getElementById("popupMessage").innerHTML = "Click button for fullscreen";
-      // } else {
-      // document.getElementById('unity-fullscreen-button').style.visibility = 'hidden';
-      // document.getElementById("popupMessage").innerHTML = "Slide Up to Play";
-      // }
+      if (getMobileOperatingSystem() == "Android") {
+        //document.getElementById("popupMessage").innerHTML = "Click button for fullscreen";
+      } else {
+        // document.getElementById('unity-fullscreen-button').style.visibility = 'hidden';
+        // document.getElementById("popupMessage").innerHTML = "Slide Up to Play";
+      }
       // End New Script Mobile
     };
     document.body.appendChild(script);
