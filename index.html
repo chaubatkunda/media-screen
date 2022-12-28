@@ -117,9 +117,12 @@
         // fullscreenButton.onclick = () => {
         // unityInstance.SetFullscreen(1);
         //};
+        container.addEventListener('touchmove', function (unityInstance) {
+          unityInstance.SetFullscreen(1);
+        })
         //var noSleep = new NoSleep();
         //noSleep.enable();
-        mouseUp(unityInstance);
+        //mouseUp(unityInstance);
       }).catch((message) => {
         alert(message);
       });
