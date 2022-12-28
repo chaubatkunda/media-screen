@@ -216,9 +216,9 @@ function getMobileOperatingSystem() {
 //   btntoas.classList.remove("show-toas");
 // }
 // const popup = document.querySelector(".full-screen");
-function mouseUp() {
+function mouseUp(unityInstance) {
   var noSleep = new NoSleep();
   noSleep.enable();
-  SetFullscreen(1);
+  unityInstance.SetFullscreen(1);
   console.log("MouseUp");
 }
