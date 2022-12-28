@@ -219,6 +219,6 @@ function getMobileOperatingSystem() {
 function mouseUp() {
   var noSleep = new NoSleep();
   noSleep.enable();
-  showPopup();
+  // showPopup();
   console.log("MouseUp");
 }
