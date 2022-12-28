@@ -126,9 +126,10 @@
             //unityInstance.SetFullscreen(1);
             //unityInstance.webkitRequestFullscreen()
             if (unityInstance.requestFullscreen) {
-              unityInstance.requestFullscreen();
+              unityInstance.requestFullscreen(1);
             } else if (unityInstance.webkitRequestFullscreen()) {
-              unityInstance.webkitRequestFullscreen();
+              unityInstance.webkitRequestFullscreen(1);
+              alert(unityInstance.webkitRequestFullscreen(1))
             }
             noSleep.enable();
           })
