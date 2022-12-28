@@ -112,33 +112,33 @@
         //fullscreenButton.onclick = () => {
         // unityInstance.SetFullscreen(1);
         //};
-
+        // New Script Mobile
+        if (getMobileOperatingSystem() == "Android") {
+          //alert(getMobileOperatingSystem());
+          // document.getElementById("popupMessage").innerHTML = "Show";
+          popupFull.innerHTML = "Show";
+          //popupFull.ontouchmove = () => {
+          //  var noSleep = new NoSleep();
+          //  noSleep.enable();
+          //alert('PopUp')
+          // }
+        } else if (getMobileOperatingSystem() == "iOS") {
+          alert(getMobileOperatingSystem());
+          //
+        } else if (getMobileOperatingSystem() == "unknown") {
+          alert(getMobileOperatingSystem());
+        } else {
+          alert("Error")
+          // document.getElementById('unity-fullscreen-button').style.visibility = 'hidden';
+          //document.getElementById("popupMessage").innerHTML = "Slide Up to Play";
+        }
+        // End New Script Mobile
 
 
       }).catch((message) => {
         alert(message);
       });
-      // New Script Mobile
-      if (getMobileOperatingSystem() == "Android") {
-        //alert(getMobileOperatingSystem());
-        // document.getElementById("popupMessage").innerHTML = "Show";
-        popupFull.innerHTML = "Show";
-        //popupFull.ontouchmove = () => {
-        //  var noSleep = new NoSleep();
-        //  noSleep.enable();
-        //alert('PopUp')
-        // }
-      } else if (getMobileOperatingSystem() == "iOS") {
-        alert(getMobileOperatingSystem());
-        //
-      } else if (getMobileOperatingSystem() == "unknown") {
-        alert(getMobileOperatingSystem());
-      } else {
-        alert("Error")
-        // document.getElementById('unity-fullscreen-button').style.visibility = 'hidden';
-        //document.getElementById("popupMessage").innerHTML = "Slide Up to Play";
-      }
-      // End New Script Mobile
+
     };
     document.body.appendChild(script);
 
