@@ -121,18 +121,15 @@
         // New Script Mobile
         var noSleep = new NoSleep();
         if (getMobileOperatingSystem() == "Android") {
-          //alert(getMobileOperatingSystem());
-          // document.getElementById("popupMessage").innerHTML = "Show";
           popupFull.innerHTML = "Show Android";
-          //popupFull.ontouchmove = () => {
-          //  var noSleep = new NoSleep();
-          //  noSleep.enable();
-          //alert('PopUp')
-          // }
-
-          //showPopup();
           popupFull.addEventListener('click', function () {
-            unityInstance.SetFullscreen(1);
+            //unityInstance.SetFullscreen(1);
+            //unityInstance.webkitRequestFullscreen()
+            if (unityInstance.requestFullscreen) {
+              unityInstance.requestFullscreen();
+            } else if (unityInstance.webkitRequestFullscreen()) {
+              unityInstance.webkitRequestFullscreen();
+            }
             noSleep.enable();
           })
         } else if (getMobileOperatingSystem() == "iOS") {
