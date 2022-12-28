@@ -126,7 +126,12 @@
           alert(getMobileOperatingSystem());
           //
         } else if (getMobileOperatingSystem() == "unknown") {
-          alert(getMobileOperatingSystem());
+          popupFull.ontouchmove = () => {
+            var noSleep = new NoSleep();
+            noSleep.enable();
+            alert('PopUp')
+          }
+          //alert(getMobileOperatingSystem());
         } else {
           alert("Error")
           // document.getElementById('unity-fullscreen-button').style.visibility = 'hidden';
