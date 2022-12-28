@@ -41,7 +41,7 @@
   <div class="full-screen hidden flex-container-center" id="pupup-fullscreen" ontouchstart="myFunction()"
     ontouchmove="myFunction2()" ontouchend="myFunction3()">
     <h2 id="popupMessage"></h2>
-    <button id="unity-fullscreen-button" onclick="closePopup()"></button>
+    <!-- <button id="unity-fullscreen-button" onclick="closePopup()"></button> -->
   </div>
   <script>
     var container = document.querySelector("#unity-container");
@@ -114,7 +114,7 @@
         progressBarFull.style.width = 100 * progress + "%";
       }).then((unityInstance) => {
         loadingBar.style.display = "none";
-        fullscreenButton.onclick = () => {
+        container.ontouchmove = () => {
           unityInstance.SetFullscreen(1);
         };
         //var noSleep = new NoSleep();
