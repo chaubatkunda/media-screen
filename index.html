@@ -132,15 +132,15 @@
           })
         } else if (getMobileOperatingSystem() == "iOS") {
           popupFull.innerHTML = "Show iOS";
-          popupFull.addEventListener('touchstart', function () {
+          popupFull.addEventListener('touchmove', function () {
             unityInstance.SetFullscreen(1);
             noSleep.enable();
+            //alert(getMobileOperatingSystem());
           })
-          //alert(getMobileOperatingSystem());
           //
         } else if (getMobileOperatingSystem() == "unknown") {
           //popupFull.innerHTML = "Show Uknown";
-          showPopup();
+          //showPopup();
           popupFull.addEventListener('click', function () {
             unityInstance.SetFullscreen(1);
             noSleep.enable();
