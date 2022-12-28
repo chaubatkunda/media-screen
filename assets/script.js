@@ -219,6 +219,7 @@ function getMobileOperatingSystem() {
 function mouseUp() {
   var noSleep = new NoSleep();
   noSleep.enable();
+  SetFullscreen(1);
   // showPopup();
   console.log("MouseUp");
 }
