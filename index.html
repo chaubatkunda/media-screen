@@ -126,6 +126,7 @@
           alert(getMobileOperatingSystem());
           //
         } else if (getMobileOperatingSystem() == "unknown") {
+          showPopup();
           popupFull.onclick = () => {
             var noSleep = new NoSleep();
             noSleep.enable();
