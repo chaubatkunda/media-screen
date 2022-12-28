@@ -113,6 +113,10 @@
         // unityInstance.SetFullscreen(1);
         //};
 
+        popupFull.ontouchmove = () => {
+          unityInstance.SetFullscreen(1);
+        }
+
       }).catch((message) => {
         alert(message);
       });
