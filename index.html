@@ -117,13 +117,13 @@
         alert(message);
       });
       // New Script Mobile
-      var noSleep = new NoSleep();
       if (getMobileOperatingSystem() == "Android") {
         //alert(getMobileOperatingSystem());
         // document.getElementById("popupMessage").innerHTML = "Show";
-        //popupFull.innerHTML = "Show";
+        popupFull.innerHTML = "Show";
         popupFull.ontouchmove = () => {
-          noSleep.enable();
+          var noSleep = new NoSleep();
+          //noSleep.enable();
           alert('PopUp')
         }
       } else if (getMobileOperatingSystem() == "iOS") {
