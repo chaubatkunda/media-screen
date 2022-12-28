@@ -115,19 +115,25 @@
         progressBarFull.style.width = 100 * progress + "%";
       }).then((unityInstance) => {
         loadingBar.style.display = "none";
+        showAdnroid(unityInstance)
         // fullscreenButton.onclick = () => {
         // unityInstance.SetFullscreen(1);
         //};
-        popUpFull.ontouchmove = () => {
-          unityInstance.SetFullscreen(1);
-          //alert("Ok")
-          console.log("Ok")
-        }
+        //popUpFull.ontouchmove = () => {
+        //unityInstance.SetFullscreen(1);
+        //alert("Ok")
+        // }
       }).catch((message) => {
         alert(message);
       });
       // New Script Mobile
       if (getMobileOperatingSystem() == "Android") {
+        function showAdnroid(unityInstance) {
+          popUpFull.ontouchmove = () => {
+            unityInstance.SetFullscreen(1);
+            // alert("Ok")
+          }
+        }
         //document.getElementById("popupMessage").innerHTML = "Click button for fullscreen";
       } else {
         // document.getElementById('unity-fullscreen-button').style.visibility = 'hidden';
@@ -142,7 +148,7 @@
       if (window.matchMedia("(orientation: portrait)").matches) {
         // you're in PORTRAIT mode
         // alert("portrait");
-        showPopup();
+        //showPopup();
       }
 
       if (window.matchMedia("(orientation: landscape)").matches) {
