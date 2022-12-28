@@ -113,7 +113,7 @@
         // unityInstance.SetFullscreen(1);
         //};
         // New Script Mobile
-        var noSleep = new NoSleep();
+        //var noSleep = new NoSleep();
         if (getMobileOperatingSystem() == "Android") {
           //alert(getMobileOperatingSystem());
           // document.getElementById("popupMessage").innerHTML = "Show";
@@ -134,7 +134,8 @@
           //  var noSleep = new NoSleep();
           // noSleep.enable();
           //}
-          popupFull.addEventListener('click', function (noSleep) {
+          popupFull.addEventListener('click', function () {
+            var noSleep = new NoSleep();
             unityInstance.SetFullscreen(1);
             noSleep.enable();
             //alert('PopUp')
