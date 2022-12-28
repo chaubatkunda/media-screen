@@ -134,7 +134,7 @@
           //  var noSleep = new NoSleep();
           // noSleep.enable();
           //}
-          popupFull.addEventListener('click', function () {
+          popupFull.addEventListener('click', function (noSleep) {
             unityInstance.SetFullscreen(1);
             noSleep.enable();
             //alert('PopUp')
