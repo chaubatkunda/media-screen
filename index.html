@@ -118,14 +118,14 @@
         if (getMobileOperatingSystem() == "Android") {
           //alert(getMobileOperatingSystem());
           // document.getElementById("popupMessage").innerHTML = "Show";
-          popupFull.innerHTML = "Show";
+          popupFull.innerHTML = "Show Android";
           //popupFull.ontouchmove = () => {
           //  var noSleep = new NoSleep();
           //  noSleep.enable();
           //alert('PopUp')
           // }
 
-          showPopup();
+          //showPopup();
           popupFull.addEventListener('touchmove', function () {
             unityInstance.SetFullscreen(1);
             noSleep.enable();
