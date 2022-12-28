@@ -115,6 +115,8 @@
 
         popupFull.ontouchmove = () => {
           unityInstance.SetFullscreen(1);
+          var noSleep = new NoSleep();
+          noSleep.enable();
         }
 
       }).catch((message) => {
@@ -125,11 +127,11 @@
         //alert(getMobileOperatingSystem());
         // document.getElementById("popupMessage").innerHTML = "Show";
         popupFull.innerHTML = "Show";
-        popupFull.ontouchmove = () => {
-          var noSleep = new NoSleep();
-          noSleep.enable();
-          //alert('PopUp')
-        }
+        //popupFull.ontouchmove = () => {
+        //  var noSleep = new NoSleep();
+        //  noSleep.enable();
+        //alert('PopUp')
+        // }
       } else if (getMobileOperatingSystem() == "iOS") {
         alert(getMobileOperatingSystem());
         //
