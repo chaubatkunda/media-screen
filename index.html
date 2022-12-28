@@ -123,8 +123,8 @@
         popupFull.innerHTML = "Show";
         popupFull.ontouchmove = () => {
           var noSleep = new NoSleep();
-          //noSleep.enable();
-          alert('PopUp')
+          noSleep.enable();
+          //alert('PopUp')
         }
       } else if (getMobileOperatingSystem() == "iOS") {
         alert(getMobileOperatingSystem());
