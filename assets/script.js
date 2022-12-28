@@ -182,3 +182,36 @@ function getMobileOperatingSystem() {
 
   return "unknown";
 }
+
+// NoSLip
+var noSleep = new NoSleep();
+
+var wakeLockEnabled = false;
+var toggleEl = document.querySelector("#btn-toas");
+toggleEl.addEventListener(
+  "click",
+  function () {
+    if (!wakeLockEnabled) {
+      noSleep.enable(); // keep the screen on!
+      wakeLockEnabled = true;
+      toggleEl.innerHTML = "Wake Lock is enabled";
+      // document.body.style.backgroundColor = "green";
+    } else {
+      noSleep.disable(); // let the screen turn off.
+      wakeLockEnabled = false;
+      toggleEl.innerHTML = "Wake Lock is disabled";
+      // document.body.style.backgroundColor = "";
+    }
+  },
+  false
+);
+
+// Toash
+// var toas = document.querySelector(".alert-toas");
+// setInterval(() => {
+//   toas.classList.toggle("show-toas");
+// }, 10000);
+// function showToas() {
+//   var btntoas = document.querySelector("#btn-toas");
+//   btntoas.classList.remove("show-toas");
+// }
