@@ -128,8 +128,8 @@
 
           //showPopup();
           popupFull.addEventListener('click', function () {
-            //unityInstance.SetFullscreen(1);
-            unityInstance.webkitRequestFullscreen();
+            unityInstance.SetFullscreen();
+            //unityInstance.webkitRequestFullscreen();
             noSleep.enable();
           })
         } else if (getMobileOperatingSystem() == "iOS") {
@@ -144,7 +144,7 @@
           //popupFull.innerHTML = "Show Uknown";
           //showPopup();
           popupFull.addEventListener('click', function () {
-            unityInstance.SetFullscreen(1);
+            unityInstance.SetFullscreen();
             noSleep.enable();
           })
           //alert(getMobileOperatingSystem());
