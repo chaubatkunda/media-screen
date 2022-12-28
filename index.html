@@ -112,6 +112,7 @@
         //fullscreenButton.onclick = () => {
         // unityInstance.SetFullscreen(1);
         //};
+
       }).catch((message) => {
         alert(message);
       });
@@ -123,6 +124,7 @@
         //popupFull.innerHTML = "Show";
         popupFull.ontouchmove = () => {
           noSleep.enable();
+          alert('PopUp')
         }
       } else if (getMobileOperatingSystem() == "iOS") {
         alert(getMobileOperatingSystem());
