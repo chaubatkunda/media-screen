@@ -43,6 +43,7 @@
     var progressBarFull = document.querySelector("#unity-progress-bar-full");
     //var fullscreenButton = document.querySelector("#unity-fullscreen-button");
     var warningBanner = document.querySelector("#unity-warning");
+    var popupFull = document.querySelector("#pupup-fullscreen");
 
     // Shows a temporary message banner/ribbon for a few seconds, or
     // a permanent error message on top of the canvas if type=='error'.
@@ -116,8 +117,9 @@
       });
       // New Script Mobile
       if (getMobileOperatingSystem() == "Android") {
-        alert(getMobileOperatingSystem());
+        <!-- alert(getMobileOperatingSystem()); -->
         // document.getElementById("popupMessage").innerHTML = "Show";
+        popupFull.innerHTML = "Show";
       } else if (getMobileOperatingSystem() == "iOS") {
         alert(getMobileOperatingSystem());
         //
