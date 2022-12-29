@@ -106,7 +106,7 @@
     canvas.style.height = "125%";
     //}
     loadingBar.style.display = "block";
-
+    var myGameInstance = null;
     var script = document.createElement("script");
 
     script.src = loaderUrl;
@@ -118,39 +118,8 @@
         //fullscreenButton.onclick = () => {
         // unityInstance.SetFullscreen(1);
         //};
-        // New Script Mobile
-        var noSleep = new NoSleep();
-        if (getMobileOperatingSystem() == "Android") {
-          popupFull.innerHTML = "Show Android";
-          popupFull.addEventListener('click', function () {
-            //unityInstance.SetFullscreen(1);
-            //unityInstance.webkitRequestFullscreen()
-            //noSleep.enable();
-            alert(unityInstance)
-          })
-        } else if (getMobileOperatingSystem() == "iOS") {
-          popupFull.innerHTML = "Show iOS";
-          popupFull.addEventListener('touchmove', function () {
-            unityInstance.SetFullscreen(1);
-            // canvas.style.width = "100%";
-            //canvas.style.height = "100%";
-            noSleep.enable();
-          })
-          //
-        } else if (getMobileOperatingSystem() == "unknown") {
-          //popupFull.innerHTML = "Show Uknown";
-          showPopup();
-          popupFull.addEventListener('click', function () {
-            unityInstance.SetFullscreen(1);
-            noSleep.enable();
-          })
-          //alert(getMobileOperatingSystem());
-        } else {
-          alert("Error")
-          // document.getElementById('unity-fullscreen-button').style.visibility = 'hidden';
-          //document.getElementById("popupMessage").innerHTML = "Slide Up to Play";
-        }
-        // End New Script Mobile
+
+        myGameInstance = unityInstance;
 
 
       }).catch((message) => {
@@ -158,6 +127,39 @@
       });
 
     };
+    // New Script Mobile
+    var noSleep = new NoSleep();
+    if (getMobileOperatingSystem() == "Android") {
+      popupFull.innerHTML = "Show Android";
+      popupFull.addEventListener('click', function () {
+        myGameInstance.SetFullscreen(1);
+        //unityInstance.webkitRequestFullscreen()
+        //noSleep.enable();
+        // alert(unityInstance)
+      })
+    } else if (getMobileOperatingSystem() == "iOS") {
+      popupFull.innerHTML = "Show iOS";
+      popupFull.addEventListener('touchmove', function () {
+        myGameInstance.SetFullscreen(1);
+        // canvas.style.width = "100%";
+        //canvas.style.height = "100%";
+        noSleep.enable();
+      })
+      //
+    } else if (getMobileOperatingSystem() == "unknown") {
+      //popupFull.innerHTML = "Show Uknown";
+      showPopup();
+      popupFull.addEventListener('click', function () {
+        myGameInstance.SetFullscreen(1);
+        noSleep.enable();
+      })
+      //alert(getMobileOperatingSystem());
+    } else {
+      alert("Error")
+      // document.getElementById('unity-fullscreen-button').style.visibility = 'hidden';
+      //document.getElementById("popupMessage").innerHTML = "Slide Up to Play";
+    }
+    // End New Script Mobile
     document.body.appendChild(script);
 
     window.addEventListener("orientationchange", function () {
