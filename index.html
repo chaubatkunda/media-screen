@@ -143,8 +143,11 @@
       popupFull.innerHTML = "Show iOS";
       //popupFull.addEventListener('click', function () {
       popupFull.addEventListener('touchmove', function () {
-        // noSleep.enable();
-
+        if (!wakeLockEnabled) {
+          noSleep.enable(); // keep the screen on!
+          wakeLockEnabled = true;
+          alert('onSleep')
+        }
         wqlc.style.display = "table";
         wqlc.style.width = innerWidth + "px";
         wqlc.style.height = innerHeight + "px";
