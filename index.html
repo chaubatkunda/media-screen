@@ -137,12 +137,14 @@
           popupFull.innerHTML = "Show iOS";
           popupFull.addEventListener('touchmove', function () {
             unityInstance.SetFullscreen(1);
+            canvas.style.width = "100%";
+            canvas.style.height = "100%";
             noSleep.enable();
           })
           //
         } else if (getMobileOperatingSystem() == "unknown") {
           //popupFull.innerHTML = "Show Uknown";
-          //showPopup();
+          showPopup();
           popupFull.addEventListener('click', function () {
             unityInstance.SetFullscreen(1);
             noSleep.enable();
