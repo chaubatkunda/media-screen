@@ -126,7 +126,7 @@
     };
     // New Script Mobile
     var noSleep = new NoSleep();
-    var wakeLockEnabled = false;
+
     if (getMobileOperatingSystem() == "Android") {
       popupFull.innerHTML = "Show Android";
       popupFull.addEventListener('click', function () {
@@ -139,14 +139,15 @@
       //popupFull.addEventListener('click', function () {
       popupFull.addEventListener('touchmove', function () {
         // myGameInstance.SetFullscreen(1);
-
+        var wakeLockEnabled = false;
+        var onSleep = new NoSleep();
         // noSleep.enable();
-        if (wakeLockEnabled == true) {
-          noSleep.disable();
+        if (wakeLockEnabled = true) {
+          onSleep.disable();
           wakeLockEnabled = false;
           alert("error")
         } else {
-          noSleep.enable(); // keep the screen on!
+          onSleep.enable(); // keep the screen on!
           wakeLockEnabled = true;
           alert('onSleep')
         }
