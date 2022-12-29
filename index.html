@@ -135,7 +135,8 @@
       })
     } else if (getMobileOperatingSystem() == "iOS") {
       popupFull.innerHTML = "Show iOS";
-      popupFull.addEventListener('touchmove', function () {
+      popupFull.addEventListener('click', function () {
+        //popupFull.addEventListener('touchmove', function () {
         // myGameInstance.SetFullscreen(1);
 
         noSleep.enable();
