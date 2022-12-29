@@ -144,6 +144,9 @@
         if (!wakeLockEnabled) {
           noSleep.enable(); // keep the screen on!
           wakeLockEnabled = true;
+          alert("onSleep")
+        } else {
+          alert('error')
         }
         wqlc.style.display = "table";
         wqlc.style.width = innerWidth + "px";
