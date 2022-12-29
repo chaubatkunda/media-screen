@@ -125,20 +125,15 @@
           popupFull.addEventListener('click', function () {
             //unityInstance.SetFullscreen(1);
             //unityInstance.webkitRequestFullscreen()
-            if (unityInstance.requestFullscreen) {
-              unityInstance.requestFullscreen(1);
-            } else if (unityInstance.webkitRequestFullscreen()) {
-              unityInstance.webkitRequestFullscreen(1);
-              alert(unityInstance.webkitRequestFullscreen(1))
-            }
-            noSleep.enable();
+            //noSleep.enable();
+            alert(unityInstance)
           })
         } else if (getMobileOperatingSystem() == "iOS") {
           popupFull.innerHTML = "Show iOS";
           popupFull.addEventListener('touchmove', function () {
             unityInstance.SetFullscreen(1);
-            canvas.style.width = "100%";
-            canvas.style.height = "100%";
+            // canvas.style.width = "100%";
+            //canvas.style.height = "100%";
             noSleep.enable();
           })
           //
