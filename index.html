@@ -132,11 +132,11 @@
         myGameInstance.SetFullscreen(1);
         noSleep.enable();
         // alert(unityInstance)
-      })
+      }, false)
     } else if (getMobileOperatingSystem() == "iOS") {
       popupFull.innerHTML = "Show iOS";
-      popupFull.addEventListener('click', function () {
-        //popupFull.addEventListener('touchmove', function () {
+      //popupFull.addEventListener('click', function () {
+      popupFull.addEventListener('touchmove', function () {
         // myGameInstance.SetFullscreen(1);
 
         noSleep.enable();
@@ -145,7 +145,7 @@
         wqlc.style.height = innerHeight + "px";
         //alert("this iOS system")
 
-      })
+      }, false)
       //
     } else if (getMobileOperatingSystem() == "unknown") {
       //popupFull.innerHTML = "Show Uknown";
