@@ -142,7 +142,7 @@
     } else if (getMobileOperatingSystem() == "iOS") {
       popupFull.innerHTML = "Show iOS";
       //popupFull.addEventListener('click', function () {
-      popupFull.addEventListener('touchmove', function () {
+      popupFull.addEventListener('click', function () {
         if (!wakeLockEnabled) {
           noSleep.enable(); // keep the screen on!
           wakeLockEnabled = true;
