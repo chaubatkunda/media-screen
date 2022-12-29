@@ -123,7 +123,6 @@
       }).catch((message) => {
         alert(message);
       });
-
     };
     // New Script Mobile
     var noSleep = new NoSleep();
@@ -132,7 +131,7 @@
       popupFull.addEventListener('click', function () {
         myGameInstance.SetFullscreen(1);
         //unityInstance.webkitRequestFullscreen()
-        // noSleep.enable();
+        noSleep.enable();
         // alert(unityInstance)
       })
     } else if (getMobileOperatingSystem() == "iOS") {
