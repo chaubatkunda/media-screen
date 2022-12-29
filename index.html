@@ -126,27 +126,25 @@
     };
     // New Script Mobile
     var noSleep = new NoSleep();
-
+    var wakeLockEnabled = false;
     if (getMobileOperatingSystem() == "Android") {
       popupFull.innerHTML = "Show Android";
       popupFull.addEventListener('click', function () {
+        if (!wakeLockEnabled) {
+          noSleep.enable(); // keep the screen on!
+          wakeLockEnabled = true;
+          alert('onSleep')
+        }
         myGameInstance.SetFullscreen(1);
-        noSleep.enable();
+        //noSleep.enable();
         // alert(unityInstance)
       }, false)
     } else if (getMobileOperatingSystem() == "iOS") {
       popupFull.innerHTML = "Show iOS";
       //popupFull.addEventListener('click', function () {
       popupFull.addEventListener('touchmove', function () {
-        // myGameInstance.SetFullscreen(1);
-        var wakeLockEnabled = false;
-        var onSleep = new NoSleep();
         // noSleep.enable();
-        if (wakeLockEnabled = false) {
-          onSleep.enable(); // keep the screen on!
-          wakeLockEnabled = true;
-          alert('onSleep')
-        }
+
         wqlc.style.display = "table";
         wqlc.style.width = innerWidth + "px";
         wqlc.style.height = innerHeight + "px";
@@ -158,8 +156,13 @@
       //popupFull.innerHTML = "Show Uknown";
       showPopup();
       popupFull.addEventListener('click', function () {
-        myGameInstance.SetFullscreen(1);
-        noSleep.enable();
+        if (!wakeLockEnabled) {
+          noSleep.enable(); // keep the screen on!
+          wakeLockEnabled = true;
+          alert('onSleep')
+        }
+        //myGameInstance.SetFullscreen(1);
+        //noSleep.enable();
       })
       //alert(getMobileOperatingSystem());
     } else {
