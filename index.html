@@ -139,10 +139,13 @@
       popupFull.innerHTML = "Show iOS";
       popupFull.addEventListener('touchmove', function () {
         // myGameInstance.SetFullscreen(1);
-        // canvas.style.width = "100%";
-        //canvas.style.height = "100%";
-        //noSleep.enable();
-        alert("this iOS system")
+
+        wqlc.style.display = "table";
+        wqlc.style.width = innerWidth + "px";
+        wqlc.style.height = innerHeight + "px";
+        noSleep.enable();
+        //alert("this iOS system")
+
       })
       //
     } else if (getMobileOperatingSystem() == "unknown") {
