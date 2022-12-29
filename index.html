@@ -141,12 +141,14 @@
         // myGameInstance.SetFullscreen(1);
 
         // noSleep.enable();
-        if (!wakeLockEnabled) {
+        if (wakeLockEnabled) {
+          noSleep.disable();
+          wakeLockEnabled = false;
+          alert("error")
+        } else {
           noSleep.enable(); // keep the screen on!
           wakeLockEnabled = true;
-          alert("onSleep")
-        } else {
-          alert('error')
+          alert('onSleep')
         }
         wqlc.style.display = "table";
         wqlc.style.width = innerWidth + "px";
