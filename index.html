@@ -133,10 +133,13 @@
     if (getMobileOperatingSystem() == "Android") {
       popupFull.innerHTML = "Show Android";
       popupFull.addEventListener('click', function () {
-        myGameInstance.SetFullscreen(1);
+        //myGameInstance.SetFullscreen(1);
         //unityInstance.webkitRequestFullscreen()
-        noSleep.enable();
+        // noSleep.enable();
         // alert(unityInstance)
+        config.devicePixelRatio = 1;
+        canvas.style.width = "960px";
+        canvas.style.height = "600px";
       })
     } else if (getMobileOperatingSystem() == "iOS") {
       popupFull.innerHTML = "Show iOS";
