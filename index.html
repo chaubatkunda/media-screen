@@ -123,31 +123,33 @@
       }).then((unityInstance) => {
         loadingBar.style.display = "none";
         myGameInstance = unityInstance;
+        var noSleep = new NoSleep();
+        var wakeLockEnabled = false;
+        var btnwake = document.querySelector("#btn-wake");
+        var alertWake = document.querySelector("#alert-wake");
+        btnwake.addEventListener('click', function () {
+          if (!wakeLockEnabled) {
+            noSleep.enable();
+            wakeLockEnabled = true;
+            alertWake.innerHTML = "Wake Lock is enabled";
+            btnwake.innerHTML = "Enabled";
+          } else {
+            noSleep.disable();
+            wakeLockEnabled = false;
+            alertWake.innerHTML = "Wake Lock is disabled";
+            btnwake.innerHTML = "Disabled";
+          }
+          //wqlc.style.display = "table";
+          //wqlc.style.width = innerWidth + "px";
+          //wqlc.style.height = innerHeight + "px";
+        })
+
+
       }).catch((message) => {
         alert(message);
       });
     };
     // New Script Mobile
-    var noSleep = new NoSleep();
-    var wakeLockEnabled = false;
-    var btnwake = document.querySelector("#btn-wake");
-    var alertWake = document.querySelector("#alert-wake");
-    btnwake.addEventListener('click', function () {
-      if (!wakeLockEnabled) {
-        noSleep.enable();
-        wakeLockEnabled = true;
-        alertWake.innerHTML = "Wake Lock is enabled";
-        btnwake.innerHTML = "Enabled";
-      } else {
-        noSleep.disable();
-        wakeLockEnabled = false;
-        alertWake.innerHTML = "Wake Lock is disabled";
-        btnwake.innerHTML = "Disabled";
-      }
-      //wqlc.style.display = "table";
-      //wqlc.style.width = innerWidth + "px";
-      //wqlc.style.height = innerHeight + "px";
-    })
 
     //if (getMobileOperatingSystem() == "Android") {
     //popupFull.innerHTML = "Show Android";
