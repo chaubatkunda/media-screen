@@ -143,9 +143,7 @@
       // popupFull.innerHTML = "Show iOS";
       fullscreenButton.addEventListener('click', function () {
         //popupFull.addEventListener('touchmove', function () {
-        wqlc.style.display = "table";
-        wqlc.style.width = innerWidth + "px";
-        wqlc.style.height = innerHeight + "px";
+
         if (!wakeLockEnabled) {
           noSleep.enable();
           wakeLockEnabled = true;
@@ -157,6 +155,9 @@
           alert("Wake Lock is disabled")
           //document.getElementById("popupMessage").innerHTML = "Wake Lock is disabled";
         }
+        wqlc.style.display = "table";
+        wqlc.style.width = innerWidth + "px";
+        wqlc.style.height = innerHeight + "px";
 
       }, false)
       //
