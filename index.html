@@ -50,7 +50,7 @@
     var canvas = document.querySelector("#unity-canvas");
     var loadingBar = document.querySelector("#unity-loading-bar");
     var progressBarFull = document.querySelector("#unity-progress-bar-full");
-    //var fullscreenButton = document.querySelector("#unity-fullscreen-button");
+    var fullscreenButton = document.querySelector("#unity-fullscreen-button");
     var warningBanner = document.querySelector("#unity-warning");
     var popupFull = document.querySelector("#pupup-fullscreen");
     var wqlc = document.querySelector("#webgl-content");
@@ -149,9 +149,13 @@
         if (!wakeLockEnabled) {
           noSleep.enable(); // keep the screen on!
           wakeLockEnabled = true;
-          alert('onSleep')
+          document.getElementById("popupMessage").innerHTML = "Wake Lock is enable";
+        } else {
+          noSleep.disable(); // let the screen turn off.
+          wakeLockEnabled = false;
+          document.getElementById("popupMessage").innerHTML = "Wake Lock is disabled";
+          //toggleEl.value = "Wake Lock is disabled";
         }
-        //alert("this iOS system")
 
       }, false)
       //
