@@ -153,13 +153,10 @@
           wakeLockEnabled = true;
           alert('onSleep')
         }
-        //alert("this iOS system")
-
       }, false)
       //
     } else if (getMobileOperatingSystem() == "unknown") {
       popupFull.innerHTML = "Show Uknown";
-      //btnwke.style.display = "block"
       showPopup();
       fullscreenButton.addEventListener('click', function () {
         alert("Ok")
@@ -168,8 +165,8 @@
       //alert(getMobileOperatingSystem());
     } else {
       alert("Error")
-      // document.getElementById('unity-fullscreen-button').style.visibility = 'hidden';
-      //document.getElementById("popupMessage").innerHTML = "Slide Up to Play";
+      document.getElementById('unity-fullscreen-button').style.visibility = 'hidden';
+      document.getElementById("popupMessage").innerHTML = "Slide Up to Play";
     }
     // End New Script Mobile
     document.body.appendChild(script);
