@@ -134,6 +134,8 @@
         if (!wakeLockEnabled) {
           noSleep.enable();
           wakeLockEnabled = true;
+
+          alert("Wake Lock is enable")
         }
         myGameInstance.SetFullscreen(1);
       }, false)
