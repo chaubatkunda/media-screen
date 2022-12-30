@@ -35,7 +35,8 @@
           <div id="unity-fullscreen-button"></div>
           <div id="unity-build-title">Labirin Game</div>
         </div> -->
-
+      <button id="btn-wake">Disabled</button>
+      <p id="alert-wake">Wake lock disable</p>
     </div>
   </div>
   <div class="full-screen hidden flex-container-center" id="pupup-fullscreen" ontouchstart="myFunction()"
@@ -43,6 +44,8 @@
     <h2 id="popupMessage"></h2>
     <div id="unity-fullscreen-button" onclick="closePopup()"></div>
   </div>
+
+
   <script src="assets/noSlip.js"></script>
   <script src="assets/script.js"></script>
   <script>
@@ -127,6 +130,21 @@
     // New Script Mobile
     var noSleep = new NoSleep();
     var wakeLockEnabled = false;
+    var btnwake = document.querySelector("#btn-wake");
+    var alertWake = document.querySelector("#alert-wake");
+    btnwake.addEventListener('click', function () {
+      if (!wakeLockEnabled) {
+        noSleep.enable();
+        wakeLockEnabled = true;
+        alertWake.innerHTML = "Wake Lock is enabled";
+        btnwake.innerHTML = "Enabled";
+      } else {
+        noSleep.disable();
+        wakeLockEnabled = false;
+        alertWake.innerHTML = "Wake Lock is disabled";
+        btnwake.innerHTML = "Disabled";
+      }
+    })
     if (getMobileOperatingSystem() == "Android") {
       //popupFull.innerHTML = "Show Android";
       document.getElementById("popupMessage").innerHTML = "Click button for fullscreen";
@@ -148,11 +166,11 @@
           noSleep.enable();
           wakeLockEnabled = true;
           // popupFull.innerHTML = "Wake Lock is enable";
-          alert("Wake Lock is enable")
+          //alert("Wake Lock is enable")
         } else {
           noSleep.disable();
           wakeLockEnabled = false;
-          alert("Wake Lock is disabled")
+          //alert("Wake Lock is disabled")
           //document.getElementById("popupMessage").innerHTML = "Wake Lock is disabled";
         }
         wqlc.style.display = "table";
@@ -161,20 +179,8 @@
 
       }, false)
       //
-    } else if (getMobileOperatingSystem() == "unknown") {
-      fullscreenButton.style.visibility = 'hidden';
-      //popupFull.innerHTML = "Show Uknown";
-      showPopup();
-      popupFull.addEventListener('click', function () {
-        if (!wakeLockEnabled) {
-          noSleep.enable(); // keep the screen on!
-          wakeLockEnabled = true;
-          //alert('onSleep')
-        }
-      })
-      //alert(getMobileOperatingSystem());
     } else {
-      alert("Error")
+      // alert("Error")
       //document.getElementById('unity-fullscreen-button').style.visibility = 'hidden';
       //document.getElementById("popupMessage").innerHTML = "Slide Up to Play";
     }
