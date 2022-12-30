@@ -132,64 +132,80 @@
     var wakeLockEnabled = false;
     var btnwake = document.querySelector("#btn-wake");
     var alertWake = document.querySelector("#alert-wake");
+    btnwake.addEventListener('click', function () {
+      if (!wakeLockEnabled) {
+        noSleep.enable();
+        wakeLockEnabled = true;
+        alertWake.innerHTML = "Wake Lock is enabled";
+        btnwake.innerHTML = "Enabled";
+      } else {
+        noSleep.disable();
+        wakeLockEnabled = false;
+        alertWake.innerHTML = "Wake Lock is disabled";
+        btnwake.innerHTML = "Disabled";
+      }
+      //wqlc.style.display = "table";
+      //wqlc.style.width = innerWidth + "px";
+      //wqlc.style.height = innerHeight + "px";
+    })
 
-    if (getMobileOperatingSystem() == "Android") {
-      //popupFull.innerHTML = "Show Android";
-      document.getElementById("popupMessage").innerHTML = "Click button for fullscreen";
-      fullscreenButton.addEventListener('click', function () {
-        if (!wakeLockEnabled) {
-          noSleep.enable();
-          wakeLockEnabled = true;
-          alert("Wake Lock is enable")
-        }
-        myGameInstance.SetFullscreen(1);
-        //alert("Wake Lock is enable")
-      }, false)
-    } else if (getMobileOperatingSystem() == "iOS") {
-      // popupFull.innerHTML = "Show iOS";
-      fullscreenButton.style.display = 'none';
-      //fullscreenButton.addEventListener('click', function () {
-      //popupFull.addEventListener('touchmove', function () {
+    //if (getMobileOperatingSystem() == "Android") {
+    //popupFull.innerHTML = "Show Android";
+    //document.getElementById("popupMessage").innerHTML = "Click button for fullscreen";
+    //fullscreenButton.addEventListener('click', function () {
+    // if (!wakeLockEnabled) {
+    // noSleep.enable();
+    //wakeLockEnabled = true;
+    //alert("Wake Lock is enable")
+    //}
+    //myGameInstance.SetFullscreen(1);
+    //alert("Wake Lock is enable")
+    //}, false)
+    //} else if (getMobileOperatingSystem() == "iOS") {
+    // popupFull.innerHTML = "Show iOS";
+    //fullscreenButton.style.display = 'none';
+    //fullscreenButton.addEventListener('click', function () {
+    //popupFull.addEventListener('touchmove', function () {
 
-      // if (!wakeLockEnabled) {
-      /// noSleep.enable();
-      //wakeLockEnabled = true;
-      // popupFull.innerHTML = "Wake Lock is enable";
-      //alert("Wake Lock is enable")
-      //} else {
-      //noSleep.disable();
-      //wakeLockEnabled = false;
-      //alert("Wake Lock is disabled")
-      //document.getElementById("popupMessage").innerHTML = "Wake Lock is disabled";
-      // }
-      alertWake.style.display = "block";
-      btnwake.style.display = "block";
-      btnwake.addEventListener('click', function () {
-        if (!wakeLockEnabled) {
-          noSleep.enable();
-          wakeLockEnabled = true;
-          alertWake.innerHTML = "Wake Lock is enabled";
-          btnwake.innerHTML = "Enabled";
-        } else {
-          noSleep.disable();
-          wakeLockEnabled = false;
-          alertWake.innerHTML = "Wake Lock is disabled";
-          btnwake.innerHTML = "Disabled";
-        }
-        wqlc.style.display = "table";
-        wqlc.style.width = innerWidth + "px";
-        wqlc.style.height = innerHeight + "px";
-      })
+    // if (!wakeLockEnabled) {
+    /// noSleep.enable();
+    //wakeLockEnabled = true;
+    // popupFull.innerHTML = "Wake Lock is enable";
+    //alert("Wake Lock is enable")
+    //} else {
+    //noSleep.disable();
+    //wakeLockEnabled = false;
+    //alert("Wake Lock is disabled")
+    //document.getElementById("popupMessage").innerHTML = "Wake Lock is disabled";
+    // }
+    //alertWake.style.display = "block";
+    //btnwake.style.display = "block";
+    //btnwake.addEventListener('click', function () {
+    //if (!wakeLockEnabled) {
+    //noSleep.enable();
+    //wakeLockEnabled = true;
+    //alertWake.innerHTML = "Wake Lock is enabled";
+    //btnwake.innerHTML = "Enabled";
+    //} else {
+    //noSleep.disable();
+    //wakeLockEnabled = false;
+    //alertWake.innerHTML = "Wake Lock is disabled";
+    //btnwake.innerHTML = "Disabled";
+    //}
+    //wqlc.style.display = "table";
+    //wqlc.style.width = innerWidth + "px";
+    //wqlc.style.height = innerHeight + "px";
+    //})
 
-      //}, false)
-      //
-    } else {
-      // alert("Error")
-      //document.getElementById('unity-fullscreen-button').style.visibility = 'hidden';
-      //document.getElementById("popupMessage").innerHTML = "Slide Up to Play";
-      alertWake.style.display = "none";
-      btnwake.style.display = "none";
-    }
+    //}, false)
+    //
+    //} else {
+    // alert("Error")
+    //document.getElementById('unity-fullscreen-button').style.visibility = 'hidden';
+    //document.getElementById("popupMessage").innerHTML = "Slide Up to Play";
+    //alertWake.style.display = "none";
+    //btnwake.style.display = "none";
+    //}
     // End New Script Mobile
     document.body.appendChild(script);
 
