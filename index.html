@@ -128,9 +128,9 @@
     var noSleep = new NoSleep();
     var wakeLockEnabled = false;
     if (getMobileOperatingSystem() == "Android") {
-      popupFull.innerHTML = "Show Android";
+      //popupFull.innerHTML = "Show Android";
       document.getElementById("popupMessage").innerHTML = "Click button for fullscreen";
-      popupFull.addEventListener('click', function () {
+      fullscreenButton.addEventListener('click', function () {
         if (!wakeLockEnabled) {
           noSleep.enable(); // keep the screen on!
           wakeLockEnabled = true;
@@ -158,6 +158,7 @@
       }, false)
       //
     } else if (getMobileOperatingSystem() == "unknown") {
+      fullscreenButton.style.visibility = 'hidden';
       //popupFull.innerHTML = "Show Uknown";
       showPopup();
       popupFull.addEventListener('click', function () {
@@ -166,6 +167,9 @@
           wakeLockEnabled = true;
           //alert('onSleep')
         }
+        //fullscreenButton.onclick = () => {
+        // unityInstance.SetFullscreen(1);
+        //};
         //myGameInstance.SetFullscreen(1);
         //noSleep.enable();
       })
