@@ -162,6 +162,8 @@
       //alert("Wake Lock is disabled")
       //document.getElementById("popupMessage").innerHTML = "Wake Lock is disabled";
       // }
+      alertWake.style.display = "block";
+      btnwake.style.display = "block";
       btnwake.addEventListener('click', function () {
         if (!wakeLockEnabled) {
           noSleep.enable();
