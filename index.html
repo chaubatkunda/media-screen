@@ -41,7 +41,7 @@
   <div class="full-screen hidden flex-container-center" id="pupup-fullscreen" ontouchstart="myFunction()"
     ontouchmove="myFunction2()" ontouchend="myFunction3()">
     <h2 id="popupMessage"></h2>
-    <!-- <div id="unity-fullscreen-button" onclick="closePopup()"></div> -->
+    <div id="unity-fullscreen-button" onclick="closePopup()"></div>
     <button id="btn-wake">Disable</button>
   </div>
   <script src="assets/noSlip.js"></script>
@@ -51,7 +51,7 @@
     var canvas = document.querySelector("#unity-canvas");
     var loadingBar = document.querySelector("#unity-loading-bar");
     var progressBarFull = document.querySelector("#unity-progress-bar-full");
-    //var fullscreenButton = document.querySelector("#unity-fullscreen-button");
+    var fullscreenButton = document.querySelector("#unity-fullscreen-button");
     var warningBanner = document.querySelector("#unity-warning");
     var popupFull = document.querySelector("#pupup-fullscreen");
     var wqlc = document.querySelector("#webgl-content");
