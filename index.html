@@ -35,17 +35,14 @@
           <div id="unity-fullscreen-button"></div>
           <div id="unity-build-title">Labirin Game</div>
         </div> -->
-      <button id="btn-wake">Disabled</button>
-      <p id="alert-wake">Wake lock disable</p>
+
     </div>
   </div>
   <div class="full-screen hidden flex-container-center" id="pupup-fullscreen" ontouchstart="myFunction()"
     ontouchmove="myFunction2()" ontouchend="myFunction3()">
     <h2 id="popupMessage"></h2>
-    <div id="unity-fullscreen-button" onclick="closePopup()"></div>
+    <!-- <div id="unity-fullscreen-button" onclick="closePopup()"></div> -->
   </div>
-
-
   <script src="assets/noSlip.js"></script>
   <script src="assets/script.js"></script>
   <script>
@@ -53,7 +50,7 @@
     var canvas = document.querySelector("#unity-canvas");
     var loadingBar = document.querySelector("#unity-loading-bar");
     var progressBarFull = document.querySelector("#unity-progress-bar-full");
-    var fullscreenButton = document.querySelector("#unity-fullscreen-button");
+    //var fullscreenButton = document.querySelector("#unity-fullscreen-button");
     var warningBanner = document.querySelector("#unity-warning");
     var popupFull = document.querySelector("#pupup-fullscreen");
     var wqlc = document.querySelector("#webgl-content");
@@ -123,70 +120,46 @@
       }).then((unityInstance) => {
         loadingBar.style.display = "none";
         myGameInstance = unityInstance;
-
       }).catch((message) => {
         alert(message);
       });
     };
     // New Script Mobile
+    var noSleep = new NoSleep();
+    var wakeLockEnabled = false;
+    if (getMobileOperatingSystem() == "Android") {
+      popupFull.innerHTML = "Show Android";
+      popupFull.addEventListener('click', function () {
+        if (!wakeLockEnabled) {
+          noSleep.enable(); // keep the screen on!
+          wakeLockEnabled = true;
+          //alert('onSleep')
+        }
+        myGameInstance.SetFullscreen(1);
+        //noSleep.enable();
+        // alert(unityInstance)
+      }, false)
+    } else if (getMobileOperatingSystem() == "iOS") {
+      popupFull.innerHTML = "Show iOS";
+      //popupFull.addEventListener('click', function () {
+      popupFull.addEventListener('touchmove', function () {
+        wqlc.style.display = "table";
+        wqlc.style.width = innerWidth + "px";
+        wqlc.style.height = innerHeight + "px";
+        if (!wakeLockEnabled) {
+          noSleep.enable(); // keep the screen on!
+          wakeLockEnabled = true;
+          alert('onSleep')
+        }
+        //alert("this iOS system")
 
-    //if (getMobileOperatingSystem() == "Android") {
-    //popupFull.innerHTML = "Show Android";
-    //document.getElementById("popupMessage").innerHTML = "Click button for fullscreen";
-    //fullscreenButton.addEventListener('click', function () {
-    // if (!wakeLockEnabled) {
-    // noSleep.enable();
-    //wakeLockEnabled = true;
-    //alert("Wake Lock is enable")
-    //}
-    //myGameInstance.SetFullscreen(1);
-    //alert("Wake Lock is enable")
-    //}, false)
-    //} else if (getMobileOperatingSystem() == "iOS") {
-    // popupFull.innerHTML = "Show iOS";
-    //fullscreenButton.style.display = 'none';
-    //fullscreenButton.addEventListener('click', function () {
-    //popupFull.addEventListener('touchmove', function () {
-
-    // if (!wakeLockEnabled) {
-    /// noSleep.enable();
-    //wakeLockEnabled = true;
-    // popupFull.innerHTML = "Wake Lock is enable";
-    //alert("Wake Lock is enable")
-    //} else {
-    //noSleep.disable();
-    //wakeLockEnabled = false;
-    //alert("Wake Lock is disabled")
-    //document.getElementById("popupMessage").innerHTML = "Wake Lock is disabled";
-    // }
-    //alertWake.style.display = "block";
-    //btnwake.style.display = "block";
-    //btnwake.addEventListener('click', function () {
-    //if (!wakeLockEnabled) {
-    //noSleep.enable();
-    //wakeLockEnabled = true;
-    //alertWake.innerHTML = "Wake Lock is enabled";
-    //btnwake.innerHTML = "Enabled";
-    //} else {
-    //noSleep.disable();
-    //wakeLockEnabled = false;
-    //alertWake.innerHTML = "Wake Lock is disabled";
-    //btnwake.innerHTML = "Disabled";
-    //}
-    //wqlc.style.display = "table";
-    //wqlc.style.width = innerWidth + "px";
-    //wqlc.style.height = innerHeight + "px";
-    //})
-
-    //}, false)
-    //
-    //} else {
-    // alert("Error")
-    //document.getElementById('unity-fullscreen-button').style.visibility = 'hidden';
-    //document.getElementById("popupMessage").innerHTML = "Slide Up to Play";
-    //alertWake.style.display = "none";
-    //btnwake.style.display = "none";
-    //}
+      }, false)
+      //
+    } else {
+      //alert("Error")
+      // document.getElementById('unity-fullscreen-button').style.visibility = 'hidden';
+      //document.getElementById("popupMessage").innerHTML = "Slide Up to Play";
+    }
     // End New Script Mobile
     document.body.appendChild(script);
 
