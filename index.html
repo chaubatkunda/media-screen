@@ -130,7 +130,7 @@
     var noSleep = new NoSleep();
     var wakeLockEnabled = false;
     if (getMobileOperatingSystem() == "Android") {
-      popupFull.innerHTML = "Show Android";
+      popupFull.innerHTML = "Show Androids";
       fullscreenButton.addEventListener('click', function () {
         if (!wakeLockEnabled) {
           noSleep.enable(); // keep the screen on!
@@ -138,8 +138,6 @@
           //alert('onSleep')
         }
         myGameInstance.SetFullscreen(1);
-        //noSleep.enable();
-        // alert(unityInstance)
       }, false)
     } else if (getMobileOperatingSystem() == "iOS") {
       popupFull.innerHTML = "Show iOS";
