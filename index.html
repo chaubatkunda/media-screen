@@ -41,7 +41,7 @@
   <div class="full-screen hidden flex-container-center" id="pupup-fullscreen" ontouchstart="myFunction()"
     ontouchmove="myFunction2()" ontouchend="myFunction3()">
     <h2 id="popupMessage"></h2>
-    <div id="unity-fullscreen-button" onclick="closePopup()"></div>
+    <button id="unity-fullscreen-button" onclick="closePopup()"></button>
     <button id="btn-wake">Disable</button>
   </div>
   <script src="assets/noSlip.js"></script>
@@ -131,7 +131,7 @@
     var wakeLockEnabled = false;
     if (getMobileOperatingSystem() == "Android") {
       popupFull.innerHTML = "Show Android";
-      popupFull.addEventListener('click', function () {
+      fullscreenButton.addEventListener('click', function () {
         if (!wakeLockEnabled) {
           noSleep.enable(); // keep the screen on!
           wakeLockEnabled = true;
@@ -159,8 +159,11 @@
       //
     } else if (getMobileOperatingSystem() == "unknown") {
       popupFull.innerHTML = "Show Uknown";
-      btnwke.style.display = "block"
+      //btnwke.style.display = "block"
       showPopup();
+      fullscreenButton.addEventListener('click', function () {
+        alert("Ok")
+      })
 
       //alert(getMobileOperatingSystem());
     } else {
