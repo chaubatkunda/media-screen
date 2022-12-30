@@ -42,6 +42,7 @@
     ontouchmove="myFunction2()" ontouchend="myFunction3()">
     <h2 id="popupMessage"></h2>
     <!-- <div id="unity-fullscreen-button" onclick="closePopup()"></div> -->
+    <button id="btn-wake">Disable</button>
   </div>
   <script src="assets/noSlip.js"></script>
   <script src="assets/script.js"></script>
@@ -54,6 +55,7 @@
     var warningBanner = document.querySelector("#unity-warning");
     var popupFull = document.querySelector("#pupup-fullscreen");
     var wqlc = document.querySelector("#webgl-content");
+    var btnwke = document.querySelector("#btn-wake");
 
     // Shows a temporary message banner/ribbon for a few seconds, or
     // a permanent error message on top of the canvas if type=='error'.
@@ -149,14 +151,20 @@
         if (!wakeLockEnabled) {
           noSleep.enable(); // keep the screen on!
           wakeLockEnabled = true;
-          // alert('onSleep')
+          alert('onSleep')
         }
         //alert("this iOS system")
 
       }, false)
       //
+    } else if (getMobileOperatingSystem() == "unknown") {
+      popupFull.innerHTML = "Show Uknown";
+      btnwke.style.display = "block"
+      showPopup();
+
+      //alert(getMobileOperatingSystem());
     } else {
-      //alert("Error")
+      alert("Error")
       // document.getElementById('unity-fullscreen-button').style.visibility = 'hidden';
       //document.getElementById("popupMessage").innerHTML = "Slide Up to Play";
     }
