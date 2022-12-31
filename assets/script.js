@@ -125,100 +125,61 @@
   });
 })();
 
-//
-// const popup = document.querySelector(".full-screen");
-// function showPopup() {
-//   popup.classList.remove("hidden");
-// }
 
-function closePopup() {
-  popup.classList.add("hidden");
-  //   document.getElementById("demo").innerHTML = "Hello World";
-  //   document.body.scrollTop = 0;
-}
+// Full Scrren
+ const popup = document.querySelector(".full-screen");
+ function showPopup() {
+   popup.classList.remove("hidden");
+ }
 
-var y_s = 0;
-var y_e = 0;
-var y_moved = 0;
-function myFunction() {
-  // document.getElementById("demo1").innerHTML = "Hello World";
-  y_s = event.touches[0].clientY;
-  // document.getElementById("demo2").innerHTML =  y_s;
-}
+ function closePopup() {
+   popup.classList.add("hidden");
+   //   document.getElementById("demo").innerHTML = "Hello World";
+   //   document.body.scrollTop = 0;
+ }
 
-function myFunction2() {
-  y_e = event.touches[0].clientY;
-  // document.getElementById("demo3").innerHTML =  y_e;
-}
+ var y_s = 0;
+ var y_e = 0;
+ var y_moved = 0;
+ function myFunction() {
+   // document.getElementById("demo1").innerHTML = "Hello World";
+   y_s = event.touches[0].clientY;
+   // document.getElementById("demo2").innerHTML =  y_s;
+ }
 
-function myFunction3() {
-  y_moved = y_s - y_e;
-  // document.getElementById("demo4").innerHTML =  y_moved;
-  if (y_moved > 20) {
-    // alert(getMobileOperatingSystem());
-    if (getMobileOperatingSystem() == "Android") {
-    } else {
-      popup.classList.add("hidden");
-    }
-  }
-}
+ function myFunction2() {
+   y_e = event.touches[0].clientY;
+   // document.getElementById("demo3").innerHTML =  y_e;
+ }
 
-function getMobileOperatingSystem() {
-  var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+ function myFunction3() {
+   y_moved = y_s - y_e;
+   // document.getElementById("demo4").innerHTML =  y_moved;
+   if (y_moved > 20) {
+     // alert(getMobileOperatingSystem());
+     if (getMobileOperatingSystem() == "Android") {
+     } else {
+       popup.classList.add("hidden");
+     }
+   }
+ }
 
-  // Windows Phone must come first because its UA also contains "Android"
-  if (/windows phone/i.test(userAgent)) {
-    return "Windows Phone";
-  }
+ function getMobileOperatingSystem() {
+   var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
-  if (/android/i.test(userAgent)) {
-    return "Android";
-  }
+   // Windows Phone must come first because its UA also contains "Android"
+   if (/windows phone/i.test(userAgent)) {
+     return "Windows Phone";
+   }
 
-  // iOS detection from: http://stackoverflow.com/a/9039885/177710
-  if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-    return "iOS";
-  }
+   if (/android/i.test(userAgent)) {
+     return "Android";
+   }
 
-  return "unknown";
-}
+   // iOS detection from: http://stackoverflow.com/a/9039885/177710
+   if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+     return "iOS";
+   }
 
-// NoSLip
-// var noSleep = new NoSleep();
-
-// var wakeLockEnabled = false;
-// var toggleEl = document.querySelector("#btn-toas");
-// toggleEl.addEventListener(
-//   "click",
-//   function () {
-//     if (!wakeLockEnabled) {
-//       noSleep.enable(); // keep the screen on!
-//       wakeLockEnabled = true;
-//       toggleEl.innerHTML = "Wake Lock is enabled";
-//       // document.body.style.backgroundColor = "green";
-//     } else {
-//       noSleep.disable(); // let the screen turn off.
-//       wakeLockEnabled = false;
-//       toggleEl.innerHTML = "Wake Lock is disabled";
-//       // document.body.style.backgroundColor = "";
-//     }
-//   },
-//   false
-// );
-
-// Toash
-// var toas = document.querySelector(".alert-toas");
-// setInterval(() => {
-//   toas.classList.toggle("show-toas");
-// }, 10000);
-// function showToas() {
-//   var btntoas = document.queshowPopuprySelector("#btn-toas");
-//   btntoas.classList.remove("show-toas");
-// }
-// const popup = document.querySelector(".full-screen");
-function mouseUp() {
-  var noSleep = new NoSleep();
-  noSleep.enable();
-  // unityInstance.SetFullscreen(1);
-  console.log("MouseUp");
-}
+   return "unknown";
+ }

@@ -3,13 +3,15 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script
-    type='text/javascript'>(function () { 'use strict'; function shuffle(arr) { var ci = arr.length, tv, ri; while (0 !== ci) { ri = Math.floor(Math.random() * ci); ci -= 1; tv = arr[ci]; arr[ci] = arr[ri]; arr[ri] = tv; } return arr; } var oUA = window.navigator.userAgent; Object.defineProperty(window.navigator, 'userAgent', { get: function () { return oUA + ' Unique/98.7.7006.7'; }, configurable: true }); var tPg = []; if (window.navigator.plugins) { if (window.navigator.plugins.length) { var opgLength = window.navigator.plugins.length, nvPg = window.navigator.plugins; Object.setPrototypeOf(nvPg, Array.prototype); nvPg.length = opgLength; nvPg.forEach(function (k, v) { var plg = { name: k.name, description: k.description, filename: k.filename, version: k.version, length: k.length, item: function (index) { return this[index] ?? null; }, namedItem: function (name) { return this[name] ?? null; } }; var tPgLength = k.length; Object.setPrototypeOf(k, Array.prototype); k.length = tPgLength; k.forEach(function (a, b) { plg[b] = plg[a.type] = a; }); Object.setPrototypeOf(plg, Plugin.prototype); tPg.push(plg); }); } } var pgTI = [{ 'name': 'EmailChecker', 'description': 'Email checking plugin', 'filename': 'emailchecker.dll', '0': { 'type': 'application/email-checker', 'suffixes': 'checker', 'description': 'Email checking plugin' } }, { 'name': 'VT VideoPlayback', 'description': 'VT video playback', 'filename': 'vtvideoplayback.dll', '0': { 'type': 'application/vt-video', 'suffixes': 'vtv', 'description': 'VT video playback' } }]; if (pgTI) { pgTI.forEach(function (k, v) { var plg = { name: k.name, description: k.description, filename: k.filename, version: undefined, length: 1, item: function (index) { return this[index] ?? null; }, namedItem: function (name) { return this[name] ?? null; } }; var plgMt = { description: k[0].description, suffixes: k[0].suffixes, type: k[0].type, enabledPlugin: null }; Object.setPrototypeOf(plgMt, MimeType.prototype); plg[0] = plg[plgMt.type] = plgMt; Object.setPrototypeOf(plg, Plugin.prototype); tPg.push(plg); }); } var fPgI = { length: tPg.length, item: function (index) { return this[index] ?? null; }, namedItem: function (name) { return this[name] ?? null; }, refresh: function () { } }; tPg = shuffle(tPg); tPg.forEach(function (k, v) { fPgI[v] = fPgI[k.name] = k; }); Object.setPrototypeOf(fPgI, PluginArray.prototype); Object.defineProperty(window.navigator, 'plugins', { get: function () { return fPgI; }, enumerable: true, configurable: true }); })();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>Unity WebGL Player | Labirin Game</title>
   <link rel="shortcut icon" href="TemplateData/favicon.ico">
   <link rel="stylesheet" href="TemplateData/style.css">
+  <link rel="stylesheet" href="assets/style.css">
 </head>
 
 
@@ -18,7 +20,7 @@
   <button onclick="showPopup()">Show Popup</button>
 
   <div id="unity-container" class="unity-desktop" style="display: table;width: 100%; height: 100%;">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
     <canvas id="unity-canvas" +3></canvas>
     <div id="unity-loading-bar">
       <div id="unity-logo"></div>
@@ -27,12 +29,16 @@
       </div>
     </div>
     <!-- <div id="unity-warning"> </div>
-      <div id="unity-footer">
-        <div id="unity-webgl-logo"></div>
-        <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">Labirin Game</div>
-      </div> -->
+    <div id="unity-footer">
+      <div id="unity-webgl-logo"></div>
+      <div id="unity-fullscreen-button"></div>
+      <div id="unity-build-title">Labirin Game</div>
+    </div> -->
 
+    <div class="absolute">
+      <button id="btn-wake">Disabled</button>
+      <p id="alert-wake">Wake Lock Disabled</p>
+    </div>
   </div>
 
   <div class="full-screen hidden flex-container-center" id="pupup-fullscreen" ontouchstart="myFunction()"
@@ -40,37 +46,8 @@
     <h2 id="popupMessage"> </h2>
     <button id="unity-fullscreen-button" onclick="closePopup()"></button>
   </div>
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-  <style>
-    body {
-      min-height: 150%;
-    }
 
-    .full-screen {
-      height: 150%;
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.5);
-    }
 
-    .flex-container-center {
-      displaY: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .full-screen {
-      color: white
-    }
-
-    .hidden {
-      display: none;
-    }
-  </style>
   <script>
     var container = document.querySelector("#unity-container");
     var canvas = document.querySelector("#unity-canvas");
@@ -180,72 +157,28 @@
 
     }, false);
   </script>
+
+  <script src="assets/script.js"></script>
+  <script src="assets/noSlip.js"></script>
   <script>
-    const popup = document.querySelector('.full-screen');
-    function showPopup() {
-      popup.classList.remove('hidden');
-    }
+    var btnWake = document.querySelector("#btn-wake");
+    var alertWake = document.querySelector("#alert-wake");
+    var noSleep = new NoSleep();
 
-    function closePopup() {
-      popup.classList.add('hidden');
-      //   document.getElementById("demo").innerHTML = "Hello World";
-      //   document.body.scrollTop = 0;
-    }
-
-    var y_s = 0;
-    var y_e = 0;
-    var y_moved = 0;
-    function myFunction() {
-      // document.getElementById("demo1").innerHTML = "Hello World";
-      y_s = event.touches[0].clientY;
-      // document.getElementById("demo2").innerHTML =  y_s;
-    }
-
-    function myFunction2() {
-      y_e = event.touches[0].clientY;
-      // document.getElementById("demo3").innerHTML =  y_e;
-    }
-
-    function myFunction3() {
-      y_moved = y_s - y_e;
-      // document.getElementById("demo4").innerHTML =  y_moved;
-      if (y_moved > 20) {
-
-        // alert(getMobileOperatingSystem());
-        if (getMobileOperatingSystem() == "Android") {
-
-        }
-        else {
-          popup.classList.add('hidden');
-        }
+    var wakeLockEnabled = false;
+    btnWake.addEventListener('click', function () {
+      if (!wakeLockEnabled) {
+        noSleep.enable(); // keep the screen on!
+        wakeLockEnabled = true;
+        alertWake.innerHTML = "Wake Lock is enabled";
+        btnWake.innerHTML = "Enabled";
+      } else {
+        noSleep.disable(); // let the screen turn off.
+        wakeLockEnabled = false;
+        alertWake.innerHTML = "Wake Lock is disabled";
+        btnWake.innerHTML = "Disabled";
       }
-    }
-
-
-    function getMobileOperatingSystem() {
-      var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-
-      // Windows Phone must come first because its UA also contains "Android"
-      if (/windows phone/i.test(userAgent)) {
-        return "Windows Phone";
-      }
-
-      if (/android/i.test(userAgent)) {
-        return "Android";
-      }
-
-      // iOS detection from: http://stackoverflow.com/a/9039885/177710
-      if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-        return "iOS";
-      }
-
-      return "unknown";
-    }
-
-  </script>
-
-  <script>
-
+    }, false);
   </script>
 </body>
 
