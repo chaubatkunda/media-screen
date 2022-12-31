@@ -341,7 +341,7 @@ window.addEventListener(
   "orientationchange",
   function () {
     // Announce the new orientation number
-    alert(screen.orientation);
+    alert(window.orientation);
   },
   false
 );
