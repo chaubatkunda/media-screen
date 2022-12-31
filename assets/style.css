@@ -29,7 +29,12 @@
 .hidden {
   display: none;
 }
-
+.visibility-hidden {
+  visibility: hidden;
+}
+.visibility-visible {
+  visibility: visible;
+}
 /* Alert */
 .modal-alert {
   /* z-index: 101; */
