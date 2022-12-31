@@ -324,25 +324,24 @@ btnWake.addEventListener(
       btnWake.innerHTML = "Enabled";
       modalLaert.classList.remove("active");
       canvas.style.display = "block";
-
-      window.addEventListener(
-        "orientationchange",
-        function () {
-          // Announce the new orientation number
-          // alert(window.orientation);
-          if (getMobileOperatingSystem() == "Android") {
-            // document.getElementById("popupMessage").innerHTML =
-            //   "Click button for fullscreen";
-            alert("Adroid");
-          } else if (getMobileOperatingSystem() == "iOS") {
-            alert("iOS");
-            // document.getElementById("unity-fullscreen-button").style.visibility =
-            //   "hidden";
-            // document.getElementById("popupMessage").innerHTML = "Slide Up to Play";
-          }
-        },
-        false
-      );
+      if (getMobileOperatingSystem() == "Android") {
+        // document.getElementById("popupMessage").innerHTML =
+        //   "Click button for fullscreen";
+        alert("Adroid");
+      } else if (getMobileOperatingSystem() == "iOS") {
+        alert("iOS");
+        // document.getElementById("unity-fullscreen-button").style.visibility =
+        //   "hidden";
+        // document.getElementById("popupMessage").innerHTML = "Slide Up to Play";
+      }
+      // window.addEventListener(
+      //   "orientationchange",
+      //   function () {
+      //     // Announce the new orientation number
+      //     // alert(window.orientation);
+      //   },
+      //   false
+      // );
       // canvas.classList.remove("visibility-hidde");
       //btnShow.classList.remove("visibility-hidde");
     } else {
