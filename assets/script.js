@@ -83,24 +83,25 @@ script.onload = () => {
       //};
 
       // Detection Layer
-      window.addEventListener(
-        "orientationchange",
-        function () {
-          // Announce the new orientation number
-          if (window.matchMedia("(orientation: portrait)").matches) {
-            // you're in PORTRAIT mode
-            // alert("portrait");
-            // showPopup();
-            alert("potrait");
-          }
+      // window.addEventListener(
+      //   "orientationchange",
+      //   function () {
+      //     // Announce the new orientation number
+      //     if (window.matchMedia("(orientation: portrait)").matches) {
+      //       // you're in PORTRAIT mode
+      //       // alert("portrait");
+      //       // showPopup();
+      //       alert("potrait");
+      //     }
 
-          if (window.matchMedia("(orientation: landscape)").matches) {
-            // you're in LANDSCAPE mode
-            alert("landscape");
-          }
-        },
-        false
-      );
+      //     if (window.matchMedia("(orientation: landscape)").matches) {
+      //       // you're in LANDSCAPE mode
+      //       alert("landscape");
+      //     }
+      //   },
+      //   false
+      // );
+
       //End  Detection Layer
     })
     .catch((message) => {
@@ -331,6 +332,16 @@ btnWake.addEventListener(
       alertWake.innerHTML = "Wake Lock is disabled";
       btnWake.innerHTML = "Disabled";
     }
+  },
+  false
+);
+
+//
+window.addEventListener(
+  "orientationchange",
+  function () {
+    // Announce the new orientation number
+    alert(screen.orientation);
   },
   false
 );
