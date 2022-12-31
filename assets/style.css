@@ -74,6 +74,7 @@
 }
 
 .button {
+  overflow: hidden;
   background-color: rgba(0, 0, 0, 0);
   background-position-x: 0%;
   background-position-y: 0%;
@@ -96,6 +97,7 @@
 .button:hover {
   box-shadow: 11px 11px 32px rgba(255, 82, 1, 0.2),
     -11px -11px 32px rgba(255, 200, 39, 0.4);
+  overflow: hidden;
 }
 .button img {
   width: 30px;

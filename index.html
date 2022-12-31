@@ -37,6 +37,7 @@
         <p id="alert-wake">Wake Lock Disabled</p>
       </div>
     </div>
+    <div id="potret-alert"></div>
     <!-- <div id="unity-warning"> </div>
     <div id="unity-footer">
       <div id="unity-webgl-logo"></div>
@@ -150,6 +151,7 @@
     };
     document.body.appendChild(script);
 
+    var potretAlert = document.querySelector("#potret-alert")
 
     window.addEventListener("orientationchange", function () {
       // Announce the new orientation number
@@ -162,7 +164,7 @@
 
       if (window.matchMedia("(orientation: landscape)").matches) {
         // you're in LANDSCAPE mode
-        // alert("landscape");
+        alert("landscape");
       }
 
     }, false);
