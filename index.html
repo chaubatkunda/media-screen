@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -18,7 +18,7 @@
 </head>
 
 <body>
-  <button onclick="showPopup()">Show Popup</button>
+  <!-- <button onclick="showPopup()">Show Popup</button> -->
   <div class="webgl-content" id="webgl-content">
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=960 height=600></canvas>
@@ -29,21 +29,23 @@
           <div id="unity-progress-bar-full"></div>
         </div>
       </div>
-      <!-- <div id="unity-warning"> </div>
+      <div id="unity-warning"></div>
       <div id="unity-footer">
         <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
         <div id="unity-build-title">Labirin Game</div>
-      </div> -->
-
+      </div>
     </div>
   </div>
-  <div class="full-screen hidden flex-container-center" id="pupup-fullscreen" ontouchstart="myFunction()"
+  <section class="modal">
+    <p>This is a modal page!</p>
+  </section>
+  <!-- <div class="full-screen hidden flex-container-center" id="pupup-fullscreen" ontouchstart="myFunction()"
     ontouchmove="myFunction2()" ontouchend="myFunction3()">
     <h2 id="popupMessage"></h2>
     <div id="unity-fullscreen-button" onclick="closePopup()"></div>
     <button id="btn-wake">Disable</button>
-  </div>
+  </div> -->
   <script src="assets/noSlip.js"></script>
   <script src="assets/script.js"></script>
   <script>
@@ -114,7 +116,7 @@
     loadingBar.style.display = "block";
     var myGameInstance = null;
     var script = document.createElement("script");
-
+    var modal = document.querySelector(".modal");
     script.src = loaderUrl;
     script.onload = () => {
       createUnityInstance(canvas, config, (progress) => {
@@ -122,6 +124,10 @@
       }).then((unityInstance) => {
         loadingBar.style.display = "none";
         myGameInstance = unityInstance;
+        //fullscreenButton.onclick = () => {
+        //myGameInstance.SetFullscreen(1)
+        //}
+        modal.classList.add('active')
       }).catch((message) => {
         alert(message);
       });
@@ -130,7 +136,8 @@
     var noSleep = new NoSleep();
     var wakeLockEnabled = false;
     if (getMobileOperatingSystem() == "Android") {
-      popupFull.innerHTML = "Show Androids";
+      popupFull.innerHTML = "Show Android";
+      fullscreenButton.style.display = 'block';
       fullscreenButton.addEventListener('click', function () {
         if (!wakeLockEnabled) {
           noSleep.enable(); // keep the screen on!
@@ -149,18 +156,14 @@
         if (!wakeLockEnabled) {
           noSleep.enable(); // keep the screen on!
           wakeLockEnabled = true;
-          alert('onSleep')
+          //alert('onSleep')
         }
       }, false)
       //
     } else if (getMobileOperatingSystem() == "unknown") {
-      popupFull.innerHTML = "Show Uknown";
-      showPopup();
-      fullscreenButton.addEventListener('click', function () {
-        alert("Ok")
-      })
-
-      //alert(getMobileOperatingSystem());
+      //popupFull.innerHTML = "Show Uknown";
+      fullscreenButton.style.display = 'block';
+      //showPopup();
     } else {
       alert("Error")
       document.getElementById('unity-fullscreen-button').style.visibility = 'hidden';
