@@ -329,7 +329,17 @@ btnWake.addEventListener(
         "orientationchange",
         function () {
           // Announce the new orientation number
-          alert(window.orientation);
+          // alert(window.orientation);
+          if (getMobileOperatingSystem() == "Android") {
+            // document.getElementById("popupMessage").innerHTML =
+            //   "Click button for fullscreen";
+            alert("Adroid");
+          } else if (getMobileOperatingSystem() == "iOS") {
+            alert("iOS");
+            // document.getElementById("unity-fullscreen-button").style.visibility =
+            //   "hidden";
+            // document.getElementById("popupMessage").innerHTML = "Slide Up to Play";
+          }
         },
         false
       );
@@ -344,16 +354,5 @@ btnWake.addEventListener(
   },
   false
 );
-
-if (getMobileOperatingSystem() == "Android") {
-  // document.getElementById("popupMessage").innerHTML =
-  //   "Click button for fullscreen";
-  alert("Adroid");
-} else if (getMobileOperatingSystem() == "iOS") {
-  alert("iOS");
-  // document.getElementById("unity-fullscreen-button").style.visibility =
-  //   "hidden";
-  // document.getElementById("popupMessage").innerHTML = "Slide Up to Play";
-}
 
 //
