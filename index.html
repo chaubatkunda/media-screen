@@ -28,9 +28,11 @@
         <div id="unity-progress-bar-full"></div>
       </div>
     </div>
-    <div class="absolute">
-      <button id="btn-wake">Disabled</button>
-      <p id="alert-wake">Wake Lock Disabled</p>
+    <div class="modal-alert" id="modal-alert">
+      <div class="absolute">
+        <button id="btn-wake">Disabled</button>
+        <p id="alert-wake">Wake Lock Disabled</p>
+      </div>
     </div>
     <!-- <div id="unity-warning"> </div>
     <div id="unity-footer">
@@ -115,16 +117,17 @@
     loadingBar.style.display = "block";
 
     var script = document.createElement("script");
-
+    var modalLaert = document.querySelector("#modal-alert");
     script.src = loaderUrl;
     script.onload = () => {
       createUnityInstance(canvas, config, (progress) => {
         progressBarFull.style.width = 100 * progress + "%";
       }).then((unityInstance) => {
         loadingBar.style.display = "none";
-        fullscreenButton.onclick = () => {
-          unityInstance.SetFullscreen(1);
-        };
+        modalLaert.classList.add("active");
+        // fullscreenButton.onclick = () => {
+        // unityInstance.SetFullscreen(1);
+        //};
       }).catch((message) => {
         alert(message);
       });
@@ -164,6 +167,7 @@
   <script>
     var btnWake = document.querySelector("#btn-wake");
     var alertWake = document.querySelector("#alert-wake");
+    var modalLaert = document.querySelector("#modal-alert");
     var noSleep = new NoSleep();
 
     var wakeLockEnabled = false;
@@ -173,6 +177,7 @@
         wakeLockEnabled = true;
         alertWake.innerHTML = "Wake Lock is enabled";
         btnWake.innerHTML = "Enabled";
+        modalLaert.classList.remove('active')
       } else {
         noSleep.disable(); // let the screen turn off.
         wakeLockEnabled = false;
