@@ -72,27 +72,6 @@ script.src = loaderUrl;
 script.onload = () => {
   createUnityInstance(canvas, config, (progress) => {
     progressBarFull.style.width = 100 * progress + "%";
-
-    // Detection Layer
-    window.addEventListener(
-      "orientationchange",
-      function () {
-        // Announce the new orientation number
-        if (window.matchMedia("(orientation: portrait)").matches) {
-          // you're in PORTRAIT mode
-          // alert("portrait");
-          // showPopup();
-          alert("potrait");
-        }
-
-        if (window.matchMedia("(orientation: landscape)").matches) {
-          // you're in LANDSCAPE mode
-          alert("landscape");
-        }
-      },
-      false
-    );
-    //End  Detection Layer
   })
     .then((unityInstance) => {
       loadingBar.style.display = "none";
@@ -102,6 +81,27 @@ script.onload = () => {
       // fullscreenButton.onclick = () => {
       // unityInstance.SetFullscreen(1);
       //};
+
+      // Detection Layer
+      window.addEventListener(
+        "orientationchange",
+        function () {
+          // Announce the new orientation number
+          if (window.matchMedia("(orientation: portrait)").matches) {
+            // you're in PORTRAIT mode
+            // alert("portrait");
+            // showPopup();
+            alert("potrait");
+          }
+
+          if (window.matchMedia("(orientation: landscape)").matches) {
+            // you're in LANDSCAPE mode
+            alert("landscape");
+          }
+        },
+        false
+      );
+      //End  Detection Layer
     })
     .catch((message) => {
       alert(message);
