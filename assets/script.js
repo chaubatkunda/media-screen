@@ -324,6 +324,15 @@ btnWake.addEventListener(
       btnWake.innerHTML = "Enabled";
       modalLaert.classList.remove("active");
       canvas.style.display = "block";
+
+      window.addEventListener(
+        "orientationchange",
+        function () {
+          // Announce the new orientation number
+          alert(window.orientation);
+        },
+        false
+      );
       // canvas.classList.remove("visibility-hidde");
       //btnShow.classList.remove("visibility-hidde");
     } else {
@@ -337,11 +346,3 @@ btnWake.addEventListener(
 );
 
 //
-window.addEventListener(
-  "orientationchange",
-  function () {
-    // Announce the new orientation number
-    alert(window.orientation);
-  },
-  false
-);
