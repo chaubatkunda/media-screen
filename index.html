@@ -134,42 +134,42 @@
       });
     };
     // New Script Mobile
-    var noSleep = new NoSleep();
-    var wakeLockEnabled = false;
-    if (getMobileOperatingSystem() == "Android") {
-      popupFull.innerHTML = "Show Android";
-      fullscreenButton.style.display = 'block';
-      fullscreenButton.addEventListener('click', function () {
-        if (!wakeLockEnabled) {
-          noSleep.enable(); // keep the screen on!
-          wakeLockEnabled = true;
-          //alert('onSleep')
-        }
-        myGameInstance.SetFullscreen(1);
-      }, false)
-    } else if (getMobileOperatingSystem() == "iOS") {
-      popupFull.innerHTML = "Show iOS";
-      //popupFull.addEventListener('click', function () {
-      popupFull.addEventListener('touchmove', function () {
-        wqlc.style.display = "table";
-        wqlc.style.width = innerWidth + "px";
-        wqlc.style.height = innerHeight + "px";
-        if (!wakeLockEnabled) {
-          noSleep.enable(); // keep the screen on!
-          wakeLockEnabled = true;
-          //alert('onSleep')
-        }
-      }, false)
-      //
-    } else if (getMobileOperatingSystem() == "unknown") {
-      //popupFull.innerHTML = "Show Uknown";
-      fullscreenButton.style.display = 'block';
-      //showPopup();
-    } else {
-      alert("Error")
-      document.getElementById('unity-fullscreen-button').style.visibility = 'hidden';
-      document.getElementById("popupMessage").innerHTML = "Slide Up to Play";
-    }
+    // var noSleep = new NoSleep();
+    //var wakeLockEnabled = false;
+    //if (getMobileOperatingSystem() == "Android") {
+    //popupFull.innerHTML = "Show Android";
+    //fullscreenButton.style.display = 'block';
+    //fullscreenButton.addEventListener('click', function () {
+    //if (!wakeLockEnabled) {
+    //noSleep.enable(); // keep the screen on!
+    //wakeLockEnabled = true;
+    //alert('onSleep')
+    //}
+    //myGameInstance.SetFullscreen(1);
+    //}, false)
+    //} else if (getMobileOperatingSystem() == "iOS") {
+    //popupFull.innerHTML = "Show iOS";
+    //popupFull.addEventListener('click', function () {
+    //popupFull.addEventListener('touchmove', function () {
+    //wqlc.style.display = "table";
+    //wqlc.style.width = innerWidth + "px";
+    // wqlc.style.height = innerHeight + "px";
+    //if (!wakeLockEnabled) {
+    // noSleep.enable(); // keep the screen on!
+    //wakeLockEnabled = true;
+    //alert('onSleep')
+    //}
+    //}, false)
+    //
+    //} else if (getMobileOperatingSystem() == "unknown") {
+    //popupFull.innerHTML = "Show Uknown";
+    //fullscreenButton.style.display = 'block';
+    //showPopup();
+    //} else {
+    //alert("Error")
+    // document.getElementById('unity-fullscreen-button').style.visibility = 'hidden';
+    //document.getElementById("popupMessage").innerHTML = "Slide Up to Play";
+    //}
     // End New Script Mobile
     document.body.appendChild(script);
 
@@ -178,7 +178,7 @@
       if (window.matchMedia("(orientation: portrait)").matches) {
         // you're in PORTRAIT mode
         // alert("portrait");
-        showPopup();
+        // showPopup();
       }
 
       if (window.matchMedia("(orientation: landscape)").matches) {
