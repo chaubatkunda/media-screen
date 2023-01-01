@@ -138,7 +138,16 @@
         // unityInstance.SetFullscreen(1);
         //};
         btnWake.onclick = () => {
-          myGameInstance.SetFullscreen(1);
+          if (getMobileOperatingSystem() == "Android") {
+            myGameInstance.SetFullscreen(1);
+          } else if (getMobileOperatingSystem() == "iOS") {
+            canvas.style.display = "table";
+            canvas.style.width = innerWidth + "px";
+            canvas.style.height = innerHeight + "px";
+          } else {
+            myGameInstance.SetFullscreen(1);
+          }
+
         };
       }).catch((message) => {
         alert(message);
