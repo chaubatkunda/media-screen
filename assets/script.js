@@ -304,9 +304,9 @@ btnWake.addEventListener(
       modalLaert.classList.remove("active");
       canvas.style.display = "block";
       if (getMobileOperatingSystem() == "Android") {
-        alert("Adroid");
+        // alert("Adroid");
       } else if (getMobileOperatingSystem() == "iOS") {
-        alert("iOS");
+        // alert("iOS");
         // document.getElementById("unity-fullscreen-button").style.visibility =
         //   "hidden";
         // document.getElementById("popupMessage").innerHTML = "Slide Up to Play";
