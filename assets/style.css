@@ -63,7 +63,7 @@
 .modal-alert.active {
   opacity: 1;
   visibility: visible;
-  transition: opacity 0.5s;
+  /* transition: opacity 0.5s; */
 }
 
 .absolute {

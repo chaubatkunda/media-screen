@@ -309,7 +309,7 @@ function getMobileOperatingSystem() {
 var btnWake = document.querySelector("#btn-wake");
 // var alertWake = document.querySelector("#alert-wake");
 var modalLaert = document.querySelector("#modal-alert");
-// var canvas = document.querySelector("#unity-canvas");
+var canvas = document.querySelector("#unity-canvas");
 btnShow.classList.add("visibility-hidden");
 var noSleep = new NoSleep();
 
