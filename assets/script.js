@@ -187,5 +187,6 @@ var alertModal = document.querySelector("#modal-alert");
 var canvas = document.querySelector("#unity-canvas");
 btnWake.addEventListener("click", function () {
   canvas.style.display = "block";
+  canvas.style.overflow = "hidden";
   alertModal.classList.remove("active");
 });
