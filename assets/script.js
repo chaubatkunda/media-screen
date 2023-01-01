@@ -64,7 +64,7 @@ canvas.style.width = "100%";
 canvas.style.height = "125%";
 //}
 loadingBar.style.display = "block";
-
+var myGameInstance = null;
 var script = document.createElement("script");
 var modalLaert = document.querySelector("#modal-alert");
 var btnShow = document.querySelector(".btn-show");
@@ -76,46 +76,25 @@ script.onload = () => {
     .then((unityInstance) => {
       loadingBar.style.display = "none";
       modalLaert.classList.add("active");
-      // canvas.style.display = "none";
+      canvas.style.display = "none";
+      myGameInstance = unityInstance;
       //btnShow.classList.add('visibility-hidden');
       // fullscreenButton.onclick = () => {
       // unityInstance.SetFullscreen(1);
       //};
-
-      // Detection Layer
-      // window.addEventListener(
-      //   "orientationchange",
-      //   function () {
-      //     // Announce the new orientation number
-      //     if (window.matchMedia("(orientation: portrait)").matches) {
-      //       // you're in PORTRAIT mode
-      //       // alert("portrait");
-      //       // showPopup();
-      //       alert("potrait");
-      //     }
-
-      //     if (window.matchMedia("(orientation: landscape)").matches) {
-      //       // you're in LANDSCAPE mode
-      //       alert("landscape");
-      //     }
-      //   },
-      //   false
-      // );
-
-      //End  Detection Layer
     })
     .catch((message) => {
       alert(message);
     });
 
-  // if (getMobileOperatingSystem() == "Android") {
-  //   document.getElementById("popupMessage").innerHTML =
-  //     "Click button for fullscreen";
-  // } else {
-  //   document.getElementById("unity-fullscreen-button").style.visibility =
-  //     "hidden";
-  //   document.getElementById("popupMessage").innerHTML = "Slide Up to Play";
-  // }
+  if (getMobileOperatingSystem() == "Android") {
+    document.getElementById("popupMessage").innerHTML =
+      "Click button for fullscreen";
+  } else {
+    document.getElementById("unity-fullscreen-button").style.visibility =
+      "hidden";
+    document.getElementById("popupMessage").innerHTML = "Slide Up to Play";
+  }
 };
 document.body.appendChild(script);
 
@@ -307,7 +286,7 @@ function getMobileOperatingSystem() {
 
 //  Alert Modal Confirm
 var btnWake = document.querySelector("#btn-wake");
-// var alertWake = document.querySelector("#alert-wake");
+var alertWake = document.querySelector("#alert-wake");
 var modalLaert = document.querySelector("#modal-alert");
 var canvas = document.querySelector("#unity-canvas");
 btnShow.classList.add("visibility-hidden");
@@ -320,25 +299,23 @@ btnWake.addEventListener(
     if (!wakeLockEnabled) {
       noSleep.enable(); // keep the screen on!
       wakeLockEnabled = true;
-      // alertWake.innerHTML = "Wake Lock is enabled";
-      // btnWake.innerHTML = "Enabled";
+      alertWake.innerHTML = "Wake Lock is enabled";
+      btnWake.innerHTML = "Enabled";
       modalLaert.classList.remove("active");
-      // canvas.style.display = "block";
-      // if (getMobileOperatingSystem() == "Android") {
-
-      //   // alert("Adroid");
-      // } else if (getMobileOperatingSystem() == "iOS") {
-
-      // alert("iOS");
-      // document.getElementById("unity-fullscreen-button").style.visibility =
-      //   "hidden";
-      // document.getElementById("popupMessage").innerHTML = "Slide Up to Play";
-      // }
+      canvas.style.display = "block";
+      if (getMobileOperatingSystem() == "Android") {
+        alert("Adroid");
+      } else if (getMobileOperatingSystem() == "iOS") {
+        alert("iOS");
+        // document.getElementById("unity-fullscreen-button").style.visibility =
+        //   "hidden";
+        // document.getElementById("popupMessage").innerHTML = "Slide Up to Play";
+      }
       // window.addEventListener(
       //   "orientationchange",
       //   function () {
-      // Announce the new orientation number
-      // alert(window.orientation);
+      //     // Announce the new orientation number
+      //     // alert(window.orientation);
       //   },
       //   false
       // );
@@ -347,8 +324,8 @@ btnWake.addEventListener(
     } else {
       noSleep.disable(); // let the screen turn off.
       wakeLockEnabled = false;
-      // alertWake.innerHTML = "Wake Lock is disabled";
-      // btnWake.innerHTML = "Disabled";
+      alertWake.innerHTML = "Wake Lock is disabled";
+      btnWake.innerHTML = "Disabled";
     }
   },
   false
