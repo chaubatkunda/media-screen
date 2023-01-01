@@ -139,25 +139,9 @@
         // fullscreenButton.onclick = () => {
         // unityInstance.SetFullscreen(1);
         //};
-        if (getMobileOperatingSystem() == "Android") {
-          btnWake.onclick = () => {
-            myGameInstance.SetFullscreen(1);
-          };
-        } else if (getMobileOperatingSystem() == "iOS") {
-
-          btnWake.ontouchmove = () => {
-            wqlc.style.display = "table";
-            wqlc.style.width = innerWidth + "px";
-            wqlc.style.height = innerHeight + "px";
-            //wqlc.requestFullscreen();
-          };
-
-        } else {
-          btnWake.onclick = () => {
-            myGameInstance.SetFullscreen(1);
-          };
-        }
-
+        btnWake.onclick = () => {
+          myGameInstance.SetFullscreen(1);
+        };
 
       }).catch((message) => {
         alert(message);
