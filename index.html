@@ -154,14 +154,7 @@
                 //wqlc.style.display = "table";
                 //wqlc.style.width = innerWidth + "px";
                 //wqlc.style.height = innerHeight + "px";
-                if (!document.fullscreenElement) {
-                  myGameInstance.requestFullscreen()
-                    .catch((err) => {
-                      alert(`Error attempting to enable fullscreen mode: ${err.message} (${err.name})`);
-                    });
-                } else {
-                  document.exitFullscreen();
-                }
+                myGameInstance.requestFullscreen();
               };
 
             }
