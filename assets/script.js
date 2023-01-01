@@ -184,6 +184,8 @@ function getMobileOperatingSystem() {
 //
 var btnWake = document.querySelector("#btn-wake");
 var alertModal = document.querySelector("#modal-alert");
+var canvas = document.querySelector("#unity-canvas");
 btnWake.addEventListener("click", function () {
+  canvas.style.display = "block";
   alertModal.classList.remove("active");
 });
