@@ -105,9 +105,9 @@
 } */
 
 /* New */
-/* body {
+body {
   min-height: 150%;
-} */
+}
 .unity-desktop {
   display: table;
   /* position: relative; */
@@ -162,6 +162,12 @@
   opacity: 1;
   visibility: visible;
   transition: opacity 0.5s;
+}
+.absolute {
+  text-align: center;
+  border-radius: 10px;
+  padding: 10px;
+  color: wheat;
 }
 
 .button {
