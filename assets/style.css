@@ -144,11 +144,11 @@
 }
 
 /* Modal */
-@media screen and (min-width: 576px) {
+/* @media screen and (min-width: 576px) {
   .modal-alert {
     background-color: aqua;
   }
-}
+} */
 .modal-alert {
   /* background-size: cover; */
   z-index: 101;
