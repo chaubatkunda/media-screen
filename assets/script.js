@@ -76,7 +76,7 @@ script.onload = () => {
     .then((unityInstance) => {
       loadingBar.style.display = "none";
       modalLaert.classList.add("active");
-      canvas.style.display = "none";
+      // canvas.style.display = "none";
       myGameInstance = unityInstance;
       //btnShow.classList.add('visibility-hidden');
       // fullscreenButton.onclick = () => {
@@ -302,10 +302,10 @@ btnWake.addEventListener(
       alertWake.innerHTML = "Wake Lock is enabled";
       btnWake.innerHTML = "Enabled";
       modalLaert.classList.remove("active");
-      canvas.style.display = "block";
+      // canvas.style.display = "block";
       if (getMobileOperatingSystem() == "Android") {
         // alert("Adroid");
-      } else if (getMobileOperatingSystem() == "iOS") {
+      } else {
         // alert("iOS");
         // document.getElementById("unity-fullscreen-button").style.visibility =
         //   "hidden";

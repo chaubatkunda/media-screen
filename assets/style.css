@@ -1,6 +1,6 @@
 .unity-desktop {
   display: table;
-  /* position: relative; */
+  position: relative;
   width: 100%;
   height: 100%;
 }
@@ -22,9 +22,9 @@
   align-items: center;
 }
 
-.full-screen {
+/* .full-screen {
   color: white;
-}
+} */
 
 .hidden {
   display: none;
