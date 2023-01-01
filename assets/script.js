@@ -320,8 +320,8 @@ btnWake.addEventListener(
     if (!wakeLockEnabled) {
       noSleep.enable(); // keep the screen on!
       wakeLockEnabled = true;
-      alertWake.innerHTML = "Wake Lock is enabled";
-      btnWake.innerHTML = "Enabled";
+      // alertWake.innerHTML = "Wake Lock is enabled";
+      // btnWake.innerHTML = "Enabled";
       modalLaert.classList.remove("active");
       canvas.style.display = "block";
       // if (getMobileOperatingSystem() == "Android") {
