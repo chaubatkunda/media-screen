@@ -329,7 +329,7 @@ btnWake.addEventListener(
           "orientationchange",
           function () {
             // Announce the new orientation number
-            alert(window.orientation);
+            // alert(window.orientation);
           },
           false
         );
@@ -339,7 +339,7 @@ btnWake.addEventListener(
           "orientationchange",
           function () {
             // Announce the new orientation number
-            alert(window.orientation);
+            // alert(window.orientation);
           },
           false
         );
