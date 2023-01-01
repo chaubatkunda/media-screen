@@ -153,10 +153,13 @@
                 //wqlc.style.display = "table";
                 //wqlc.style.width = innerWidth + "px";
                 //wqlc.style.height = innerHeight + "px";
-                wqlc.classList.add('wrap-gpl')
-                canvas.style.width = '100%';
-                canvas.style.height = '125%';
-                canvas.style.position = 'absolute';
+                if (!document.fullscreenElement) {
+                  elem.requestFullscreen().catch((err) => {
+                    alert(`Error attempting to enable fullscreen mode: ${err.message} (${err.name})`);
+                  });
+                } else {
+                  document.exitFullscreen();
+                }
               };
 
             }
@@ -168,10 +171,10 @@
                 //wqlc.style.display = "table";
                 //wqlc.style.width = innerWidth + "px";
                 //wqlc.style.height = innerHeight + "px";
-                wqlc.classList.add('wrap-gpl')
-                canvas.style.width = '100%';
-                canvas.style.height = '125%';
-                canvas.style.position = 'absolute';
+                //wqlc.classList.add('wrap-gpl')
+                //canvas.style.width = '100%';
+                //canvas.style.height = '125%';
+                //canvas.style.position = 'absolute';
               };
             }
 
