@@ -147,23 +147,30 @@
             // Announce the new orientation number
             if (window.matchMedia("(orientation: portrait)").matches) {
               // you're in PORTRAIT mode
-              alert("portrait");
+              //alert("portrait");
               // showPopup();
+              btnWake.ontouchmove = () => {
+                //wqlc.style.display = "table";
+                //wqlc.style.width = innerWidth + "px";
+                //wqlc.style.height = innerHeight + "px";
+                wqlc.classList.add('wrap-gpl')
+              };
 
             }
 
             if (window.matchMedia("(orientation: landscape)").matches) {
               // you're in LANDSCAPE mode
-              alert("landscape");
+              // alert("landscape");
+              btnWake.ontouchmove = () => {
+                //wqlc.style.display = "table";
+                //wqlc.style.width = innerWidth + "px";
+                //wqlc.style.height = innerHeight + "px";
+                wqlc.classList.add('wrap-gpl')
+              };
             }
 
           }, false);
-          btnWake.ontouchmove = () => {
-            //wqlc.style.display = "table";
-            //wqlc.style.width = innerWidth + "px";
-            //wqlc.style.height = innerHeight + "px";
-            wqlc.classList.add('wrap-gpl')
-          };
+
         } else {
           btnWake.onclick = () => {
             myGameInstance.SetFullscreen(1);
