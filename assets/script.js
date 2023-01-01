@@ -1,106 +1,3 @@
-// Unity Script
-var container = document.querySelector("#unity-container");
-var canvas = document.querySelector("#unity-canvas");
-var loadingBar = document.querySelector("#unity-loading-bar");
-var progressBarFull = document.querySelector("#unity-progress-bar-full");
-var fullscreenButton = document.querySelector("#unity-fullscreen-button");
-var warningBanner = document.querySelector("#unity-warning");
-var fullscreenAndroid = document.querySelector("#pupup-fullscreen");
-
-// Shows a temporary message banner/ribbon for a few seconds, or
-// a permanent error message on top of the canvas if type=='error'.
-// If type=='warning', a yellow highlight color is used.
-// Modify or remove this function to customize the visually presented
-// way that non-critical warnings and error messages are presented to the
-// user.
-function unityShowBanner(msg, type) {
-  function updateBannerVisibility() {
-    warningBanner.style.display = warningBanner.children.length
-      ? "block"
-      : "none";
-  }
-  var div = document.createElement("div");
-  div.innerHTML = msg;
-  warningBanner.appendChild(div);
-  if (type == "error") div.style = "background: red; padding: 10px;";
-  else {
-    if (type == "warning") div.style = "background: yellow; padding: 10px;";
-    setTimeout(function () {
-      warningBanner.removeChild(div);
-      updateBannerVisibility();
-    }, 5000);
-  }
-  updateBannerVisibility();
-}
-
-var buildUrl = "Build";
-var loaderUrl = buildUrl + "/TryBuildWebgl.loader.js";
-var config = {
-  dataUrl: buildUrl + "/TryBuildWebgl.data.unityweb",
-  frameworkUrl: buildUrl + "/TryBuildWebgl.framework.js.unityweb",
-  codeUrl: buildUrl + "/TryBuildWebgl.wasm.unityweb",
-  streamingAssetsUrl: "StreamingAssets",
-  companyName: "Labyrinth",
-  productName: "Labirin Game",
-  productVersion: "1.0",
-  showBanner: unityShowBanner,
-};
-
-// By default Unity keeps WebGL canvas render target size matched with
-// the DOM size of the canvas element (scaled by window.devicePixelRatio)
-// Set this to false if you want to decouple this synchronization from
-// happening inside the engine, and you would instead like to size up
-// the canvas DOM size and WebGL render target sizes yourself.
-// config.matchWebGLToCanvasSize = false;
-
-//if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-//container.className = "unity-mobile";
-// Avoid draining fillrate performance on mobile devices,
-// and default/override low DPI mode on mobile browsers.
-//config.devicePixelRatio = 1;
-//unityShowBanner('WebGL builds are not supported on mobile devices.');
-//} else {
-canvas.style.width = "100%";
-canvas.style.height = "125%";
-//}
-loadingBar.style.display = "block";
-var myGameInstance = null;
-var script = document.createElement("script");
-var modalLaert = document.querySelector("#modal-alert");
-var btnShow = document.querySelector(".btn-show");
-script.src = loaderUrl;
-script.onload = () => {
-  createUnityInstance(canvas, config, (progress) => {
-    progressBarFull.style.width = 100 * progress + "%";
-  })
-    .then((unityInstance) => {
-      loadingBar.style.display = "none";
-      modalLaert.classList.add("active");
-      // canvas.style.display = "none";
-      myGameInstance = unityInstance;
-      //btnShow.classList.add('visibility-hidden');
-      // fullscreenButton.onclick = () => {
-      // unityInstance.SetFullscreen(1);
-      //};
-    })
-    .catch((message) => {
-      alert(message);
-    });
-
-  if (getMobileOperatingSystem() == "Android") {
-    document.getElementById("popupMessage").innerHTML =
-      "Click button for fullscreen";
-  } else {
-    document.getElementById("unity-fullscreen-button").style.visibility =
-      "hidden";
-    document.getElementById("popupMessage").innerHTML = "Slide Up to Play";
-  }
-};
-document.body.appendChild(script);
-
-var potretAlert = document.querySelector("#potret-alert");
-
-// End Unity Script
 (function () {
   "use strict";
   function shuffle(arr) {
@@ -228,7 +125,7 @@ var potretAlert = document.querySelector("#potret-alert");
   });
 })();
 
-// Full Scrren
+// Before
 const popup = document.querySelector(".full-screen");
 function showPopup() {
   popup.classList.remove("hidden");
@@ -236,8 +133,6 @@ function showPopup() {
 
 function closePopup() {
   popup.classList.add("hidden");
-  //   document.getElementById("demo").innerHTML = "Hello World";
-  //   document.body.scrollTop = 0;
 }
 
 var y_s = 0;
@@ -256,7 +151,9 @@ function myFunction2() {
 
 function myFunction3() {
   y_moved = y_s - y_e;
+  // document.getElementById("demo4").innerHTML =  y_moved;
   if (y_moved > 20) {
+    // alert(getMobileOperatingSystem());
     if (getMobileOperatingSystem() == "Android") {
     } else {
       popup.classList.add("hidden");
@@ -284,51 +181,9 @@ function getMobileOperatingSystem() {
   return "unknown";
 }
 
-//  Alert Modal Confirm
-var btnWake = document.querySelector("#btn-wake");
-var alertWake = document.querySelector("#alert-wake");
-var modalLaert = document.querySelector("#modal-alert");
-var canvas = document.querySelector("#unity-canvas");
-btnShow.classList.add("visibility-hidden");
-var noSleep = new NoSleep();
-
-var wakeLockEnabled = false;
-btnWake.addEventListener(
-  "click",
-  function () {
-    if (!wakeLockEnabled) {
-      noSleep.enable(); // keep the screen on!
-      wakeLockEnabled = true;
-      alertWake.innerHTML = "Wake Lock is enabled";
-      btnWake.innerHTML = "Enabled";
-      modalLaert.classList.remove("active");
-      // canvas.style.display = "block";
-      if (getMobileOperatingSystem() == "Android") {
-        // alert("Adroid");
-      } else {
-        // alert("iOS");
-        // document.getElementById("unity-fullscreen-button").style.visibility =
-        //   "hidden";
-        // document.getElementById("popupMessage").innerHTML = "Slide Up to Play";
-      }
-      // window.addEventListener(
-      //   "orientationchange",
-      //   function () {
-      //     // Announce the new orientation number
-      //     // alert(window.orientation);
-      //   },
-      //   false
-      // );
-      // canvas.classList.remove("visibility-hidde");
-      //btnShow.classList.remove("visibility-hidde");
-    } else {
-      noSleep.disable(); // let the screen turn off.
-      wakeLockEnabled = false;
-      alertWake.innerHTML = "Wake Lock is disabled";
-      btnWake.innerHTML = "Disabled";
-    }
-  },
-  false
-);
-
 //
+var btnWake = document.querySelector("#btn-wake");
+var alertModal = document.querySelector("#modal-alert");
+btnWake.addEventListener("click", function () {
+  alertModal.classList.remove("active");
+});
