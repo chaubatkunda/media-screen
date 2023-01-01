@@ -76,7 +76,7 @@ script.onload = () => {
     .then((unityInstance) => {
       loadingBar.style.display = "none";
       modalLaert.classList.add("active");
-      canvas.style.display = "none";
+      // canvas.style.display = "none";
       //btnShow.classList.add('visibility-hidden');
       // fullscreenButton.onclick = () => {
       // unityInstance.SetFullscreen(1);
@@ -307,9 +307,9 @@ function getMobileOperatingSystem() {
 
 //  Alert Modal Confirm
 var btnWake = document.querySelector("#btn-wake");
-var alertWake = document.querySelector("#alert-wake");
+// var alertWake = document.querySelector("#alert-wake");
 var modalLaert = document.querySelector("#modal-alert");
-var canvas = document.querySelector("#unity-canvas");
+// var canvas = document.querySelector("#unity-canvas");
 btnShow.classList.add("visibility-hidden");
 var noSleep = new NoSleep();
 
@@ -323,36 +323,22 @@ btnWake.addEventListener(
       // alertWake.innerHTML = "Wake Lock is enabled";
       // btnWake.innerHTML = "Enabled";
       modalLaert.classList.remove("active");
-      canvas.style.display = "block";
+      // canvas.style.display = "block";
       // if (getMobileOperatingSystem() == "Android") {
-      //   window.addEventListener(
-      //     "orientationchange",
-      //     function () {
-      //       // Announce the new orientation number
-      //       // alert(window.orientation);
-      //     },
-      //     false
-      //   );
+
       //   // alert("Adroid");
       // } else if (getMobileOperatingSystem() == "iOS") {
-      //   window.addEventListener(
-      //     "orientationchange",
-      //     function () {
-      //       // Announce the new orientation number
-      //       // alert(window.orientation);
-      //     },
-      //     false
-      //   );
-      //   // alert("iOS");
-      //   // document.getElementById("unity-fullscreen-button").style.visibility =
-      //   //   "hidden";
-      //   // document.getElementById("popupMessage").innerHTML = "Slide Up to Play";
+
+      // alert("iOS");
+      // document.getElementById("unity-fullscreen-button").style.visibility =
+      //   "hidden";
+      // document.getElementById("popupMessage").innerHTML = "Slide Up to Play";
       // }
       // window.addEventListener(
       //   "orientationchange",
       //   function () {
-      //     // Announce the new orientation number
-      //     // alert(window.orientation);
+      // Announce the new orientation number
+      // alert(window.orientation);
       //   },
       //   false
       // );
@@ -361,8 +347,8 @@ btnWake.addEventListener(
     } else {
       noSleep.disable(); // let the screen turn off.
       wakeLockEnabled = false;
-      alertWake.innerHTML = "Wake Lock is disabled";
-      btnWake.innerHTML = "Disabled";
+      // alertWake.innerHTML = "Wake Lock is disabled";
+      // btnWake.innerHTML = "Disabled";
     }
   },
   false
