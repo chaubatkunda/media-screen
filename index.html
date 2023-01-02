@@ -127,9 +127,9 @@
                 loadingBar.style.display = "none";
                 alertModal.classList.add("active");
                 myGameInstance = unityInstance;
-                //  fullscreenButton.onclick = () => {
-                //     unityInstance.SetFullscreen(1);
-                //  };
+                fullscreenButton.onclick = () => {
+                    unityInstance.SetFullscreen(1);
+                };
                 btnWake.addEventListener("click", function () {
                     if (!wakeLockEnabled) {
                         noSleep.enable(); //keep the screen on!
@@ -137,7 +137,7 @@
                     }
                     alertModal.classList.remove("active");
 
-                    myGameInstance.SetFullscreen(1);
+                    //myGameInstance.SetFullscreen(1);
                     //alertModal.classList.remove("active");
                 });
 
