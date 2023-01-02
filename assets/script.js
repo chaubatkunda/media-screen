@@ -665,8 +665,9 @@ btnWake.addEventListener("click", function () {
     openfullscreen();
   } else if (getMobileOperatingSystem() == "iOS") {
     // alert(myGameInstance.SetFullscreen(1));
-    openfullscreen();
+    // openfullscreen();
     // alert("iOS");
+    rotate();
   } else {
     myGameInstance.SetFullscreen(1);
     //
@@ -712,4 +713,24 @@ function closefullscreen() {
     /* IE/Edge */
     document.msExitFullscreen();
   }
+}
+
+function rotate() {
+  window.addEventListener(
+    "orientationchange",
+    function () {
+      // Announce the new orientation number
+      if (window.matchMedia("(orientation: portrait)").matches) {
+        // you're in PORTRAIT mode
+        // alert("portrait");
+        showPopup();
+      }
+
+      if (window.matchMedia("(orientation: landscape)").matches) {
+        // you're in LANDSCAPE mode
+        // alert("landscape");
+      }
+    },
+    false
+  );
 }
