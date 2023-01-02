@@ -613,7 +613,7 @@ document.body.appendChild(script);
 const popup = document.querySelector(".full-screen");
 function showPopup() {
   popup.classList.remove("hidden");
-  loadingBar.style.display = "none";
+  // loadingBar.style.display = "none";
 }
 
 function closePopup() {

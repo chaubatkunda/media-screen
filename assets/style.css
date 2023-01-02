@@ -132,11 +132,6 @@ body {
   align-items: center;
 }
 
-.full-screen {
-  /* color: white; */
-  display: none;
-}
-
 .hidden {
   display: none;
 }
