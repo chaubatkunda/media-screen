@@ -369,6 +369,27 @@
 // );
 
 //
+// Mobile Versio
+function getMobileOperatingSystem() {
+  var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+  // Windows Phone must come first because its UA also contains "Android"
+  if (/windows phone/i.test(userAgent)) {
+    return "Windows Phone";
+  }
+
+  if (/android/i.test(userAgent)) {
+    return "Android";
+  }
+
+  // iOS detection from: http://stackoverflow.com/a/9039885/177710
+  if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+    return "iOS";
+  }
+
+  return "unknown";
+}
+
 // Unity Script
 var container = document.querySelector("#unity-container");
 var canvas = document.querySelector("#unity-canvas");
@@ -451,9 +472,9 @@ script.onload = () => {
       myGameInstance = unityInstance;
       loadingBar.style.display = "none";
       alertModal.classList.add("active");
-      btnWake.onclick = () => {
-        myGameInstance.SetFullscreen(1);
-      };
+      // btnWake.onclick = () => {
+      //   myGameInstance.SetFullscreen(1);
+      // };
     })
     .catch((message) => {
       alert(message);
@@ -624,26 +645,6 @@ function myFunction3() {
   }
 }
 
-function getMobileOperatingSystem() {
-  var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-
-  // Windows Phone must come first because its UA also contains "Android"
-  if (/windows phone/i.test(userAgent)) {
-    return "Windows Phone";
-  }
-
-  if (/android/i.test(userAgent)) {
-    return "Android";
-  }
-
-  // iOS detection from: http://stackoverflow.com/a/9039885/177710
-  if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-    return "iOS";
-  }
-
-  return "unknown";
-}
-
 //
 // var btnWake = document.querySelector("#btn-wake");
 // var alertModal = document.querySelector("#modal-alert");
@@ -659,4 +660,5 @@ btnWake.addEventListener("click", function () {
     wakeLockEnabled = true;
   }
   alertModal.classList.remove("active");
+  myGameInstance.SetFullscreen(1);
 });
