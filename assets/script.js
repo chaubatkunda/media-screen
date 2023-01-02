@@ -668,7 +668,7 @@ btnWake.addEventListener("click", function () {
     // alert(myGameInstance.SetFullscreen(1));
     // openfullscreen();
     // alert("iOS");
-    // rotate();
+    rotate();
   } else {
     myGameInstance.SetFullscreen(1);
     //
