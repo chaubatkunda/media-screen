@@ -665,7 +665,8 @@ btnWake.addEventListener("click", function () {
     openfullscreen();
   } else if (getMobileOperatingSystem() == "iOS") {
     // alert(myGameInstance.SetFullscreen(1));
-    openfullscreen();
+    // openfullscreen();
+    alert("iOS");
   } else {
     myGameInstance.SetFullscreen(1);
     //
