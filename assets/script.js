@@ -663,9 +663,47 @@ btnWake.addEventListener("click", function () {
   if (getMobileOperatingSystem() == "Android") {
     alert("Android");
   } else if (getMobileOperatingSystem() == "iOS") {
-    alert(myGameInstance.SetFullscreen(1));
+    // alert(myGameInstance.SetFullscreen(1));
+    openfullscreen();
   } else {
     myGameInstance.SetFullscreen(1);
     //
   }
 });
+
+function openfullscreen() {
+  // Trigger fullscreen
+  if (document.getElementById("webgl-content").requestFullscreen) {
+    document.getElementById("webgl-content").requestFullscreen();
+  } else if (document.getElementById("webgl-content").mozRequestFullScreen) {
+    /* Firefox */
+    document.getElementById("webgl-content").mozRequestFullScreen();
+  } else if (document.getElementById("webgl-content").webkitRequestFullscreen) {
+    /* Chrome, Safari and Opera */
+    document.getElementById("webgl-content").webkitRequestFullscreen();
+  } else if (document.getElementById("webgl-content").webkitRequestFullScreen) {
+    /* Chrome, Safari and Opera */
+    document.getElementById("webgl-content").webkitRequestFullScreen();
+  } else if (document.getElementById("webgl-content").msRequestFullscreen) {
+    /* IE/Edge */
+    document.getElementById("webgl-content").msRequestFullscreen();
+  }
+}
+
+function closefullscreen() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.mozCancelFullScreen) {
+    /* Firefox */
+    document.mozCancelFullScreen();
+  } else if (document.webkitExitFullscreen) {
+    /* Chrome, Safari and Opera */
+    document.webkitExitFullscreen();
+  } else if (document.webkitExitFullScreen) {
+    /* Chrome, Safari and Opera */
+    document.webkitExitFullScreen();
+  } else if (document.msExitFullscreen) {
+    /* IE/Edge */
+    document.msExitFullscreen();
+  }
+}
