@@ -679,12 +679,12 @@ function openfullscreen() {
   } else if (document.getElementById("webgl-content").mozRequestFullScreen) {
     /* Firefox */
     document.getElementById("webgl-content").mozRequestFullScreen();
-  } else if (document.getElementById("webgl-content").webkitRequestFullscreen) {
+  } else if (document.getElementById("webgl-content").webkitIsFullScreen) {
     /* Chrome, Safari and Opera */
-    document.getElementById("webgl-content").webkitRequestFullscreen();
-  } else if (document.getElementById("webgl-content").webkitRequestFullScreen) {
+    document.getElementById("webgl-content").webkitIsFullScreen();
+  } else if (document.getElementById("webgl-content").webkitIsFullScreen) {
     /* Chrome, Safari and Opera */
-    document.getElementById("webgl-content").webkitRequestFullScreen();
+    document.getElementById("webgl-content").webkitIsFullScreen();
   } else if (document.getElementById("webgl-content").msRequestFullscreen) {
     /* IE/Edge */
     document.getElementById("webgl-content").msRequestFullscreen();
