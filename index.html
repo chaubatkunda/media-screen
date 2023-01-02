@@ -145,7 +145,26 @@
       }).then((unityInstance) => {
         loadingBar.style.display = "none";
         fullscreenButton.onclick = () => {
-          unityInstance.SetFullscreen(1);
+          //unityInstance.SetFullscreen(1);
+          if (document.getElementById("unity-container").requestFullscreen) {
+            document.getElementById("unity-container").requestFullscreen();
+          } else if (document.getElementById("unity-container").mozRequestFullScreen) {
+            /* Firefox */
+            document.getElementById("unity-container").mozRequestFullScreen();
+          } else if (
+            document.getElementById("unity-container").webkitCurrentFullScreenElement
+          ) {
+            /* Chrome, Safari and Opera */
+            document.getElementById("unity-container").webkitCurrentFullScreenElement();
+          } else if (
+            document.getElementById("unity-container").webkitCurrentFullScreenElement
+          ) {
+            /* Chrome, Safari and Opera */
+            document.getElementById("unity-container").webkitCurrentFullScreenElement();
+          } else if (document.getElementById("unity-container").msRequestFullscreen) {
+            /* IE/Edge */
+            document.getElementById("unity-container").msRequestFullscreen();
+          }
         };
       }).catch((message) => {
         alert(message);
