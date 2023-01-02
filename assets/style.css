@@ -147,7 +147,7 @@
   z-index: 101;
   background-color: #000;
   display: flex;
-  visibility: hidden;
+  /* visibility: hidden; */
   opacity: 0;
   transition: opacity 0.5s, visibility 0s 0.5s;
   /* vertical-align: 100vh; */
@@ -158,7 +158,7 @@
   left: 0px;
   right: 0px;
   width: 100%;
-  height: 125%;
+  height: 100%;
   /* box-sizing: content-box; */
   /* position: absolute; */
 }
