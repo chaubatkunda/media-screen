@@ -660,5 +660,12 @@ btnWake.addEventListener("click", function () {
     wakeLockEnabled = true;
   }
   alertModal.classList.remove("active");
-  myGameInstance.SetFullscreen(1);
+  if (getMobileOperatingSystem() == "Android") {
+    alert("Android");
+  } else if (getMobileOperatingSystem() == "iOS") {
+    alert("iOS");
+  } else {
+    myGameInstance.SetFullscreen(1);
+    //
+  }
 });
