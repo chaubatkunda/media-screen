@@ -660,7 +660,7 @@ btnWake.addEventListener("click", function () {
     noSleep.enable(); // keep the screen on!
     wakeLockEnabled = true;
   }
-  alertModal.classList.remove("active");
+  // alertModal.classList.remove("active");
   if (getMobileOperatingSystem() == "Android") {
     // alert("Android");
     myGameInstance.SetFullscreen(1);
