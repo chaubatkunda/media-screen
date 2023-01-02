@@ -663,7 +663,7 @@ btnWake.addEventListener("click", function () {
   if (getMobileOperatingSystem() == "Android") {
     alert("Android");
   } else if (getMobileOperatingSystem() == "iOS") {
-    alert("iOS");
+    alert(myGameInstance.requestFullscreen());
   } else {
     myGameInstance.SetFullscreen(1);
     //
