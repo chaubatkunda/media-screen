@@ -133,7 +133,8 @@ body {
 }
 
 .full-screen {
-  color: white;
+  /* color: white; */
+  display: none;
 }
 
 .hidden {
