@@ -661,7 +661,8 @@ btnWake.addEventListener("click", function () {
   }
   alertModal.classList.remove("active");
   if (getMobileOperatingSystem() == "Android") {
-    alert("Android");
+    // alert("Android");
+    openfullscreen();
   } else if (getMobileOperatingSystem() == "iOS") {
     // alert(myGameInstance.SetFullscreen(1));
     openfullscreen();
