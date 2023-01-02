@@ -663,7 +663,7 @@ btnWake.addEventListener("click", function () {
   alertModal.classList.remove("active");
   if (getMobileOperatingSystem() == "Android") {
     // alert("Android");
-    openfullscreen();
+    myGameInstance.SetFullscreen(1);
   } else if (getMobileOperatingSystem() == "iOS") {
     // alert(myGameInstance.SetFullscreen(1));
     // openfullscreen();
@@ -673,6 +673,7 @@ btnWake.addEventListener("click", function () {
     myGameInstance.SetFullscreen(1);
     //
   }
+  alertModal.classList.remove("active");
 });
 
 function openfullscreen() {
