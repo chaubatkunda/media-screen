@@ -668,7 +668,7 @@ btnWake.addEventListener("click", function () {
     // alert(myGameInstance.SetFullscreen(1));
     // openfullscreen();
     // alert("iOS");
-    rotate();
+    // rotate();
   } else {
     myGameInstance.SetFullscreen(1);
     //
@@ -677,25 +677,25 @@ btnWake.addEventListener("click", function () {
 
 function openfullscreen() {
   // Trigger fullscreen
-  if (document.getElementById("webgl-content").requestFullscreen) {
-    document.getElementById("webgl-content").requestFullscreen();
-  } else if (document.getElementById("webgl-content").mozRequestFullScreen) {
-    /* Firefox */
-    document.getElementById("webgl-content").mozRequestFullScreen();
-  } else if (
-    document.getElementById("webgl-content").webkitCurrentFullScreenElement
-  ) {
-    /* Chrome, Safari and Opera */
-    document.getElementById("webgl-content").webkitCurrentFullScreenElement();
-  } else if (
-    document.getElementById("webgl-content").webkitCurrentFullScreenElement
-  ) {
-    /* Chrome, Safari and Opera */
-    document.getElementById("webgl-content").webkitCurrentFullScreenElement();
-  } else if (document.getElementById("webgl-content").msRequestFullscreen) {
-    /* IE/Edge */
-    document.getElementById("webgl-content").msRequestFullscreen();
-  }
+  // if (document.getElementById("webgl-content").requestFullscreen) {
+  //   document.getElementById("webgl-content").requestFullscreen();
+  // } else if (document.getElementById("webgl-content").mozRequestFullScreen) {
+  //   /* Firefox */
+  //   document.getElementById("webgl-content").mozRequestFullScreen();
+  // } else if (
+  //   document.getElementById("webgl-content").webkitCurrentFullScreenElement
+  // ) {
+  //   /* Chrome, Safari and Opera */
+  //   document.getElementById("webgl-content").webkitCurrentFullScreenElement();
+  // } else if (
+  //   document.getElementById("webgl-content").webkitCurrentFullScreenElement
+  // ) {
+  //   /* Chrome, Safari and Opera */
+  //   document.getElementById("webgl-content").webkitCurrentFullScreenElement();
+  // } else if (document.getElementById("webgl-content").msRequestFullscreen) {
+  //   /* IE/Edge */
+  //   document.getElementById("webgl-content").msRequestFullscreen();
+  // }
 }
 
 function closefullscreen() {
