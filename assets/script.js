@@ -665,7 +665,7 @@ btnWake.addEventListener("click", function () {
     openfullscreen();
   } else if (getMobileOperatingSystem() == "iOS") {
     // alert(myGameInstance.SetFullscreen(1));
-    // openfullscreen();
+    openfullscreen();
     alert("iOS");
   } else {
     myGameInstance.SetFullscreen(1);
@@ -680,12 +680,16 @@ function openfullscreen() {
   } else if (document.getElementById("webgl-content").mozRequestFullScreen) {
     /* Firefox */
     document.getElementById("webgl-content").mozRequestFullScreen();
-  } else if (document.getElementById("webgl-content").webkitIsFullScreen) {
+  } else if (
+    document.getElementById("webgl-content").webkitCurrentFullScreenElement
+  ) {
     /* Chrome, Safari and Opera */
-    document.getElementById("webgl-content").webkitIsFullScreen();
-  } else if (document.getElementById("webgl-content").webkitIsFullScreen) {
+    document.getElementById("webgl-content").webkitCurrentFullScreenElement();
+  } else if (
+    document.getElementById("webgl-content").webkitCurrentFullScreenElement
+  ) {
     /* Chrome, Safari and Opera */
-    document.getElementById("webgl-content").webkitIsFullScreen();
+    document.getElementById("webgl-content").webkitCurrentFullScreenElement();
   } else if (document.getElementById("webgl-content").msRequestFullscreen) {
     /* IE/Edge */
     document.getElementById("webgl-content").msRequestFullscreen();
