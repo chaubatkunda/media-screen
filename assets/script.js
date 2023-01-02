@@ -729,6 +729,7 @@ function rotate() {
       if (window.matchMedia("(orientation: landscape)").matches) {
         // you're in LANDSCAPE mode
         // alert("landscape");
+        showPopup();
       }
     },
     false
